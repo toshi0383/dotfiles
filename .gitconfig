@@ -1,0 +1,51 @@
+[user]
+	name = toshi0383
+	email = t.suzuki326@gmail.com
+[core]
+	excludesfile = /Users/tsuzuki/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[alias]
+	p = pull --ff
+	s = status
+	o = checkout
+	b = checkout -b
+	pu = !git push origin `git rev-parse --abbrev-ref HEAD`
+	puu = push -u
+	c = commit -v
+	f = fetch
+	fa = fetch --all
+	hist = log --pretty=format:\\\\\"%C(yellow)%h %C(White)%ad | %C(White)%s%C(Green)%d %C(Red)[%an]\\\\\" --graph --date=short
+	st = stash
+	stp = stash pop
+	a = add
+	ap = add -p
+	hard = reset --hard
+	soft = reset --soft
+	hardd = reset --hard HEAD^
+	softt = reset --soft HEAD^
+	ba = branch -a
+	rp = reset -p
+	d = diff
+	dc = diff --cached
+	g = grep -in
+	l = log
+	stat = log --stat
+	line = log --no-merges --date=short --pretty=format:\\\\\"%C(yellow)%h %C(green)%cd %C(blue)%an%C(red)%d %C(reset)%s\\\\\"
+	unstg = reset HEAD
+	pu-clean = !git pu && git branch -d ${1} && git checkout -b ${1}_hello
+	br = branch
+	brd = branch -d
+	brdf = branch -df
+	clean = !git branch -d ${1} && git checkout -b ${1}
+	wipe = !sh -c \"git branch -d ${1} && git push origin --delete ${1}\"
+	delete-remote = !sh -c \"git push origin --delete ${1}\"
+	nuke = !sh -c \"git branch -D ${1} && git push origin --delete ${1}\"
+	pu-nuke = !sh -c \"git pu && git nuke ${1}\"
+	stl = stash list
+	ga = !sh -c \"git grep ${1} `git rev-list --all`\"
+	bra = branch -a
