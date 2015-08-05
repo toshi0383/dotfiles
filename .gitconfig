@@ -41,11 +41,16 @@
 	br = branch
 	brd = branch -d
 	brdf = branch -df
+	brddf = !sh -c \"git branch -df topic/redmine${1}\"
 	clean = !git branch -d ${1} && git checkout -b ${1}
 	wipe = !sh -c \"git branch -d ${1} && git push origin --delete ${1}\"
 	delete-remote = !sh -c \"git push origin --delete ${1}\"
 	nuke = !sh -c \"git branch -D ${1} && git push origin --delete ${1}\"
+	nukke = !sh -c \"git branch -D topic/redmine${1} && git push origin --delete topic/redmine${1}\"
 	pu-nuke = !sh -c \"git pu && git nuke ${1}\"
 	stl = stash list
 	ga = !sh -c \"git grep ${1} `git rev-list --all`\"
 	bra = branch -a
+  bb = !sh -c \"git checkout -b topic/redmine${1}\"
+  oo = !sh -c \"git checkout topic/redmine${1}\"
+
