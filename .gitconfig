@@ -18,7 +18,7 @@
   puu = push -u
   c = commit -v
   f = fetch
-  fa = fetch --all
+  fa = fetch --all --prune
   hist = log --pretty=format:\\\\\"%C(yellow)%h %C(White)%ad | %C(White)%s%C(Green)%d %C(Red)[%an]\\\\\" --graph --date=short
   st = stash
   stp = stash pop
