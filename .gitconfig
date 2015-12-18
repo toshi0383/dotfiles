@@ -19,6 +19,7 @@
   c = commit -v
   f = fetch
   fa = fetch --all --prune
+  fixup = commit --fixup
   hist = log --pretty=format:\\\\\"%C(yellow)%h %C(White)%ad | %C(White)%s%C(Green)%d %C(Red)[%an]\\\\\" --graph --date=short
   st = stash
   stp = stash pop
@@ -54,3 +55,10 @@
   bb = !sh -c \"git checkout -b topic/redmine${1}\"
   oo = !sh -c \"git checkout topic/redmine${1}\"
 
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[rebase]
+	autosquash = true
+	autostash = true
