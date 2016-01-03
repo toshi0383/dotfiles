@@ -1,5 +1,6 @@
 if [ "`uname -s`" == "Linux" ];then
     alias ll='ls -l --time-style="posix-iso"'
+    alias tt='gnome-terminal'
     setxkbmap -option "ctrl:swapcaps"
     xmodmap ~/.Xmodmap
 else
