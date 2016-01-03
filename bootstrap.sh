@@ -17,3 +17,7 @@ if [ "`uname -s`" == "Linux" ];then
     fi
 fi
 
+GREEN="\033[32m"
+NORMAL="\033[0;39m"
+echo -e "${GREEN}Finished bootstrapping. Please restart your Terminal.${NORMAL}"
+
