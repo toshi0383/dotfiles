@@ -9,6 +9,10 @@ export EDITOR=vi
 
 # alias javac='javac -J-Duser.language=en'
 
+MAIN_BRANCH=
+
+alias devp='git checkout $MAIN_BRANCH'
+alias devp='git checkout $MAIN_BRANCH && git pull --ff-only'
 alias pr='hub pull-request'
 alias pro='gh pr -B '
 alias proupstream='gh pr --remote upstream -B '
