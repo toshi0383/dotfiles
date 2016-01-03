@@ -1,13 +1,11 @@
 if [ "`uname -s`" == "Linux" ];then
     alias ll='ls -l --time-style="posix-iso"'
+    xmodmap ~/.Xmodmap
 else
     alias ll='ls -l'
 fi
-alias lrt='ls -lrt'
+alias lrt='ll -rt'
 alias g='git'
-
-# source /usr/local/etc/bash_completion.d/git-prompt.sh
-# source /usr/local/etc/bash_completion.d/git-completion.bash
 
 export EDITOR=vi
 
@@ -62,7 +60,3 @@ if [ "`uname -s`" == "Darwin" ];then
 
 fi
 
-if [ "OS" == "Linux" ];then
-    xmodmap ~/.Xmodmap
-    setxkbmap -option "ctrl:swapcaps"
-fi
