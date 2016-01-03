@@ -1,5 +1,6 @@
 if [ "`uname -s`" == "Linux" ];then
     alias ll='ls -l --time-style="posix-iso"'
+    setxkbmap -option "ctrl:swapcaps"
     xmodmap ~/.Xmodmap
 else
     alias ll='ls -l'
