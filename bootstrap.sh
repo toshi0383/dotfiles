@@ -22,6 +22,10 @@ copy .vimrc
 copy .gitconfig
 
 if [ "`uname -s`" == "Linux" ];then
+    which setxkbmap > /dev/null
+    if [ $? -ne 0 ];then
+        sudo apt-get install setxkbmap
+    fi
     copy .Xmodmap
 fi
 
