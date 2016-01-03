@@ -1,4 +1,8 @@
-alias ll='ls -l'
+if [ "`uname -s`" == "Linux" ];then
+    alias ll='ls -l --time-style="posix-iso"'
+else
+    alias ll='ls -l'
+fi
 alias lrt='ls -lrt'
 alias g='git'
 
