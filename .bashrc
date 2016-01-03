@@ -18,10 +18,7 @@ alias pro='gh pr -B '
 alias proupstream='gh pr --remote upstream -B '
 alias openprfor='~/Settings/scripts/open-pull-request-for.sh'
 
-alias xselp='xcode-select -p'
-alias xsels='sudo xcode-select -s'
 alias gcl='git clone'
-alias fuckoff='sudo rm -rf /Applications/Xcode.app/'
 
 export GOPATH=~/gohome
 export PATH=$PATH:$GOPATH/bin
@@ -31,26 +28,32 @@ export PS1='\W $ '
 export PATH=$PATH:/usr/local/lib/node_modules
 export PATH=$PATH:`xcode-select -p`/usr/bin
 
-# for new Swift
-#export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH
+# Setup for OS X
+if [ "`uname -s`" == "Darwin" ];then
+    # Xcode
+    alias xselp='xcode-select -p'
+    alias xsels='sudo xcode-select -s'
+    alias fuckoff='sudo rm -rf /Applications/Xcode.app/'
+    alias oproj='open *proj'
+    alias opace='open *pace'
 
-#eval "$(hub alias -s)"
+    # for new Swift
+    #export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH
 
-# altool
-export PATH=$PATH:/Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Versions/A/Support
-#$(dirname "$(find $(dirname $(xcode-select -p)) -name altool | head -1)")
+    #eval "$(hub alias -s)"
 
-# swiftenv
-#export SWIFTENV_ROOT=~/.swiftenv
-#export PATH=$SWIFTENV_ROOT/bin:$PATH
-#eval $(swiftenv init -)
+    # altool
+    export PATH=$PATH:/Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Versions/A/Support
+    #$(dirname "$(find $(dirname $(xcode-select -p)) -name altool | head -1)")
 
-alias objc2swift='java -jar /Users/toshi0383/github/objc2swift/build/libs/objc2swift-1.0.jar'
+    # swiftenv
+    #export SWIFTENV_ROOT=~/.swiftenv
+    #export PATH=$SWIFTENV_ROOT/bin:$PATH
+    #eval $(swiftenv init -)
 
-export DERIVED=~/Library/Developer/Xcode/DerivedData
-alias resetd='rm -rf $DERIVED/*'
+    alias objc2swift='java -jar /Users/toshi0383/github/objc2swift/build/libs/objc2swift-1.0.jar'
 
-# for Xcode
-alias oproj='open *proj'
-alias opace='open *pace'
+    export DERIVED=~/Library/Developer/Xcode/DerivedData
+    alias resetd='rm -rf $DERIVED/*'
 
+fi
