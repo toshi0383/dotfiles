@@ -26,11 +26,11 @@ export PATH=$PATH:~/Settings/scripts
 export PS1='\W $ '
 
 export PATH=$PATH:/usr/local/lib/node_modules
-export PATH=$PATH:`xcode-select -p`/usr/bin
 
 # Setup for OS X
 if [ "`uname -s`" == "Darwin" ];then
     # Xcode
+    export PATH=$PATH:`xcode-select -p`/usr/bin
     alias xselp='xcode-select -p'
     alias xsels='sudo xcode-select -s'
     alias fuckoff='sudo rm -rf /Applications/Xcode.app/'
