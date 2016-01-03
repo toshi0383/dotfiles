@@ -9,3 +9,11 @@ cp $PWD/.bashrc ~/.bashrc
 cp $PWD/.vimrc ~/.vimrc
 cp $PWD/.gitconfig ~/.gitconfig
 
+if [ "`uname -s`" == "Linux" ];then
+    cp $PWD/.Xmodmap ~/.Xmodmap
+    which setxkbmap > /dev/null
+    if [ $? -ne 0 ];then
+        sudo apt-get install setxkbmap
+    fi
+fi
+

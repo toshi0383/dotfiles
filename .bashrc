@@ -61,3 +61,8 @@ if [ "`uname -s`" == "Darwin" ];then
     alias resetd='rm -rf $DERIVED/*'
 
 fi
+
+if [ "OS" == "Linux" ];then
+    xmodmap ~/.Xmodmap
+    setxkbmap -option "ctrl:swapcaps"
+fi
