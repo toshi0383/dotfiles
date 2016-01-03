@@ -23,11 +23,6 @@ copy .gitconfig
 
 if [ "`uname -s`" == "Linux" ];then
     copy .Xmodmap
-    which setxkbmap > /dev/null
-    if [ $? -ne 0 ];then
-        echo "Installing setxkbmap as root"
-        sudo apt-get install setxkbmap
-    fi
 fi
 
 echo -e "${GREEN}Finished bootstrapping. Please restart your Terminal.${NORMAL}"
