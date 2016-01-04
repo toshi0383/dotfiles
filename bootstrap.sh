@@ -12,7 +12,7 @@ if [ $line != y ];then
     exit 1;
 fi
 
-SSHKEY="~/.ssh/id_rsa.pub"
+SSHKEY=~/.ssh/id_rsa.pub
 if [ ! -f $SSHKEY ];then
     echo -e "${RED}${SSHKEY} does not exist. Make sure you generate ssh-key before cloning GitHub repos.${NORMAL}"
     echo "Exiting..."
