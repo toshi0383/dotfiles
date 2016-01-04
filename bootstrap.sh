@@ -21,9 +21,21 @@ fi
 
 if [ "`uname -s`" == "Linux" ];then
     INSTALL_COMMAND="sudo apt-get --quiet install"
+    UPDATE_COMMAND="sudo apt-get update"
+    UPGRADE_COMMAND="sudo apt-get upgrade"
+    NPM_INSTALL="sudo npm install -g"
 else
     INSTALL_COMMAND="brew install"
+    UPDATE_COMMAND="brew update"
+    UPGRADE_COMMAND="brew upgrade"
+    GEM_INSTALL="sudo gem install"
+    NPM_INSTALL="npm install -g"
 fi
+
+make_sure_everything_is_up_to_date() {
+    $UPDATE_COMMAND && $UPGRADE_COMMAND
+}
+
 
 copy() {
     echo -n "Copying ${1} ... "
@@ -32,7 +44,8 @@ copy() {
 }
 
 install_additional_commands() {
-    for i in tree lv dos2unix
+    $UPDATE_COMMAND
+    for i in tree lv dos2unix npm hub
     do
         which $i > /dev/null
         if [ $? -ne 0 ];then
@@ -41,6 +54,13 @@ install_additional_commands() {
             echo "done"
         fi
     done
+
+    $NPM_INSTALL gh
+
+    if [ "`uname -s`" == "Darwin" ];then
+        GEM_INSTALL fastlane
+        GEM_INSTALL sigh
+    fi
 }
 
 get_rid_of_vim_tiny() {
@@ -51,7 +71,7 @@ get_rid_of_vim_tiny() {
 
 setup_dirs() {
     mkdir ~/github
-    mkdir ~/dev
+    mkdir -p ~/dev/tmp
 }
 
 install_swift() {
@@ -86,6 +106,8 @@ get_rid_of_vim_tiny
 setup_dirs
 
 install_swift
+
+make_sure_everything_is_up_to_date
 
 echo -e "${GREEN}Finished bootstrapping. Please restart your Terminal.${NORMAL}"
 
