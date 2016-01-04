@@ -43,6 +43,13 @@ copy() {
     echo "done"
 }
 
+uninstall_libreoffice() {
+    if [ "`uname -s`" == "Linux" ];then
+        #sudo apt-get remove --purge libreoffice 4.2*
+        sudo apt-get remove --purge libreoffice-core
+    fi
+}
+
 install_additional_commands() {
     $UPDATE_COMMAND
     for i in tree lv dos2unix npm hub
@@ -98,6 +105,8 @@ if [ "`uname -s`" == "Linux" ];then
     fi
     copy .Xmodmap
 fi
+
+uninstall_libreoffice
 
 install_additional_commands
 
