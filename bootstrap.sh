@@ -43,10 +43,11 @@ copy() {
     echo "done"
 }
 
-uninstall_libreoffice() {
+uninstall_apps() {
     if [ "`uname -s`" == "Linux" ];then
         #sudo apt-get remove --purge libreoffice 4.2*
         sudo apt-get remove --purge libreoffice-core
+        sudo apt-get remove unity-webapps-common
         sudo apt-get autoremove
     fi
 }
@@ -110,7 +111,7 @@ if [ "`uname -s`" == "Linux" ];then
     copy .Xmodmap
 fi
 
-uninstall_libreoffice
+uninstall_apps
 
 install_additional_commands
 
