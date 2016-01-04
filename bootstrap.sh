@@ -14,7 +14,7 @@ fi
 
 SSHKEY="~/.ssh/id_rsa.pub"
 if [ ! -f $SSHKEY ];then
-    echo "${RED}${SSHKEY} does not exist. Make sure you generate ssh-key before cloning GitHub repos.${NORMAL}"
+    echo -e "${RED}${SSHKEY} does not exist. Make sure you generate ssh-key before cloning GitHub repos.${NORMAL}"
     echo "Exiting..."
     exit 1;
 fi
@@ -82,7 +82,7 @@ setup_dirs() {
 }
 
 install_swift() {
-    echo -n "${YELLOW}Install Swift ?(y/n):${NORMAL}"
+    echo -en "${YELLOW}Install Swift ?(y/n):${NORMAL}"
     read line
     if [ $line != "y" ];then
         return
