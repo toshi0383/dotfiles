@@ -11,6 +11,12 @@ if [ $line != y ];then
     exit 1;
 fi
 
+if [ "`uname -s`" == "Linux" ];then
+    INSTALL_COMMAND="sudo apt-get --quiet install"
+else
+    INSTALL_COMMAND="brew install"
+fi
+
 copy() {
     echo -n "Copying ${1} ... "
     cp $PWD/${1} ~/${1}
@@ -18,12 +24,12 @@ copy() {
 }
 
 install_additional_commands() {
-    for i in tree lv
+    for i in tree lv dos2unix
     do
         which $i > /dev/null
         if [ $? -ne 0 ];then
             echo -n "Installing ${i} ... "
-            sudo apt-get --quiet install $i
+            $INSTALL_COMMAND ${i}
             echo "done"
         fi
     done
