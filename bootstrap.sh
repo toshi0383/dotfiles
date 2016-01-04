@@ -53,7 +53,7 @@ uninstall_libreoffice() {
 
 install_additional_commands() {
     $UPDATE_COMMAND
-    for i in tree lv dos2unix npm hub
+    for i in tree lv dos2unix npm
     do
         which $i > /dev/null
         if [ $? -ne 0 ];then
@@ -66,8 +66,11 @@ install_additional_commands() {
     $NPM_INSTALL gh
 
     if [ "`uname -s`" == "Darwin" ];then
-        GEM_INSTALL fastlane
-        GEM_INSTALL sigh
+        $INSTALL_COMMAND hub
+        $INSTALL_COMMAND swiftlint
+        $INSTALL_COMMAND carthage
+        $GEM_INSTALL fastlane
+        $GEM_INSTALL sigh
     fi
 }
 
