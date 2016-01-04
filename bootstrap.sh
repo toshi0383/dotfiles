@@ -35,6 +35,12 @@ install_additional_commands() {
     done
 }
 
+get_rid_of_vim_tiny() {
+    if [ "`uname -s`" == "Linux" ];then
+        $INSTALL_COMMAND vim
+    fi
+}
+
 copy .bashrc
 copy .vimrc
 copy .gitconfig
@@ -48,6 +54,8 @@ if [ "`uname -s`" == "Linux" ];then
 fi
 
 install_additional_commands
+
+get_rid_of_vim_tiny
 
 echo -e "${GREEN}Finished bootstrapping. Please restart your Terminal.${NORMAL}"
 
