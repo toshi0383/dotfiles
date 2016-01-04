@@ -47,6 +47,7 @@ uninstall_libreoffice() {
     if [ "`uname -s`" == "Linux" ];then
         #sudo apt-get remove --purge libreoffice 4.2*
         sudo apt-get remove --purge libreoffice-core
+        sudo apt-get autoremove
     fi
 }
 
