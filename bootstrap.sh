@@ -99,6 +99,21 @@ install_swift() {
     fi
 }
 
+install_java() {
+    if [ "`uname -s`" != "Linux" ];then
+        return;
+    fi
+    echo -en "${YELLOW}Install Java ?(y/n):${NORMAL}"
+    read line
+    if [ $line != "y" ];then
+        return
+    fi
+    sudo add-apt-repository ppa:webupd8team/java
+    sudo apt-get update
+    sudo apt-get install oracle-java8-installer
+    sudo apt-get install oracle-java8-set-default
+}
+
 copy .bashrc
 copy .vimrc
 copy .gitconfig
@@ -120,6 +135,8 @@ get_rid_of_vim_tiny
 setup_dirs
 
 install_swift
+
+install_java
 
 make_sure_everything_is_up_to_date
 
