@@ -19,6 +19,10 @@ if [ ! -f $SSHKEY ];then
     exit 1;
 fi
 
+SETTING_DIR=~/Settings
+SCRIPTS_DIR=$SETTING_DIR/scripts
+GITHUB_DIR=~/github
+
 if [ "`uname -s`" == "Linux" ];then
     INSTALL_COMMAND="sudo apt-get --quiet install"
     UPDATE_COMMAND="sudo apt-get update"
@@ -82,8 +86,13 @@ get_rid_of_vim_tiny() {
 }
 
 setup_dirs() {
-    mkdir ~/github
+    mkdir -p $GITHUB_DIR
     mkdir -p ~/dev/tmp
+    mkdir -p $SCRIPTS_DIR
+}
+
+clone_my_scripts() {
+    git clone git@github.com:toshi0383/scripts.git $SCRIPTS_DIR
 }
 
 install_swift() {
@@ -133,6 +142,8 @@ install_additional_commands
 get_rid_of_vim_tiny
 
 setup_dirs
+
+clone_my_scripts
 
 install_swift
 
