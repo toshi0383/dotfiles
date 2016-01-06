@@ -54,7 +54,7 @@ uninstall_apps() {
 
 install_additional_commands() {
     $UPDATE_COMMAND
-    for i in tree lv dos2unix npm
+    for i in tree lv dos2unix npm jq
     do
         which $i > /dev/null
         if [ $? -ne 0 ];then
