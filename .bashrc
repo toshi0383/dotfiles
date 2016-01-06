@@ -1,3 +1,6 @@
+SETTING_DIR=~/Settings
+SCRIPTS_DIR=$SETTING_DIR/scripts
+
 if [ "`uname -s`" == "Linux" ];then
     alias update='sudo apt-get update && sudo npm update -g'
 else
@@ -65,6 +68,6 @@ if [ "`uname -s`" == "Darwin" ];then
 
     export DERIVED=~/Library/Developer/Xcode/DerivedData
     alias resetd='rm -rf $DERIVED/*'
+    alias disableats='$SCRIPTS_DIR/disableats.sh'
 
 fi
-
