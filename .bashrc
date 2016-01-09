@@ -30,7 +30,7 @@ alias pr='hub pull-request'
 alias prl='gh pr'
 alias prlu='gh pr --remote upstream'
 alias pro='gh pr -B '
-alias proupstream='gh pr --remote upstream -B '
+alias prou='gh pr --remote upstream -B '
 alias openprfor='~/Settings/scripts/open-pull-request-for.sh'
 
 alias gcl='git clone'
