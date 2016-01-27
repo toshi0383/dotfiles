@@ -18,7 +18,7 @@
   puu = push -u
   c = commit -v
   f = fetch
-  fa = fetch --all --prune
+  fa = fetch --all --prune --tag
   fixup = commit --fixup
   hist = log --pretty=format:\\\\\"%C(yellow)%h %C(White)%ad | %C(White)%s%C(Green)%d %C(Red)[%an]\\\\\" --graph --date=short
   st = stash
@@ -54,6 +54,10 @@
   bra = branch -a
   bb = !sh -c \"git checkout -b topic/redmine${1}\"
   oo = !sh -c \"git checkout topic/redmine${1}\"
+  brset = !sh -c \"git branch --set-upstream-to=origin/${1} ${1}\"
+  brsetu = !sh -c \"git branch --set-upstream-to=upstream/${1} ${1}\"
+  pullum = pull upstream master
+  pullu = pull upstream
 
 [filter "lfs"]
 	clean = git-lfs clean %f
