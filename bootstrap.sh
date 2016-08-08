@@ -146,7 +146,7 @@ setup_dirs
 
 clone_my_scripts
 
-install_swift
+# install_swift
 
 install_java
 
