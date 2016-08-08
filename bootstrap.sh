@@ -24,14 +24,18 @@ SCRIPTS_DIR=$SETTING_DIR/scripts
 GITHUB_DIR=~/github
 
 if [ "`uname -s`" == "Linux" ];then
-    INSTALL_COMMAND="sudo apt-get --quiet install"
-    UPDATE_COMMAND="sudo apt-get update"
-    UPGRADE_COMMAND="sudo apt-get upgrade"
+    PACKAGE_MANAGEMENT_COMMAND=apt-get
+    INSTALL_PACKAGE_MANAGEMENT_COMMAND="echo apt-get not exists ?? That's weird.; exit 1"
+    INSTALL_COMMAND="sudo ${PACKAGE_MANAGEMENT_COMMAND} --quiet install"
+    UPDATE_COMMAND="sudo ${PACKAGE_MANAGEMENT_COMMAND} update"
+    UPGRADE_COMMAND="sudo ${PACKAGE_MANAGEMENT_COMMAND} upgrade"
     NPM_INSTALL="sudo npm install -g"
 else
-    INSTALL_COMMAND="brew install"
-    UPDATE_COMMAND="brew update"
-    UPGRADE_COMMAND="brew upgrade"
+    PACKAGE_MANAGEMENT_COMMAND=brew
+    INSTALL_PACKAGE_MANAGEMENT_COMMAND="/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    INSTALL_COMMAND="${PACKAGE_MANAGEMENT_COMMAND} install"
+    UPDATE_COMMAND="${PACKAGE_MANAGEMENT_COMMAND} update"
+    UPGRADE_COMMAND="${PACKAGE_MANAGEMENT_COMMAND} upgrade"
     GEM_INSTALL="sudo gem install"
     NPM_INSTALL="npm install -g"
 fi
@@ -57,6 +61,9 @@ uninstall_apps() {
 }
 
 install_additional_commands() {
+    if [ ! `which ${PACKAGE_MANAGEMENT_COMMAND}` ];then
+        ${INSTALL_PACKAGE_MANAGEMENT_COMMAND}
+    fi
     $UPDATE_COMMAND
     for i in tree lv dos2unix npm jq
     do
