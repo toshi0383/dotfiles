@@ -26,7 +26,13 @@ MAIN_BRANCH=
 
 alias devp='git checkout $MAIN_BRANCH'
 alias devp='git checkout $MAIN_BRANCH && git pull --ff-only'
+alias pu='g pu'
+alias puf='g pu -f'
 alias pr='hub pull-request'
+alias pupr='pu && pr -o'
+alias pufpr='puf && pr -o'
+alias pru='hub pull-request -b upstream/master'
+alias pupru='g pu && pru'
 alias prl='gh pr'
 alias prlu='gh pr --remote upstream'
 alias pro='gh pr -B '
@@ -48,9 +54,12 @@ if [ "`uname -s`" == "Darwin" ];then
     export PATH=$PATH:`xcode-select -p`/usr/bin
     alias xselp='xcode-select -p'
     alias xsels='sudo xcode-select -s'
+    alias openx='open -a `xselp`/../..'
     alias fuckoff='sudo rm -rf /Applications/Xcode.app/'
-    alias oproj='open *proj'
-    alias opace='open *pace'
+    alias oproj='openx *proj'
+    alias opace='openx *pace'
+	alias uuid='~/Settings/scripts/printUUIDofMobileprovision.sh'
+    alias size='${SCRIPTS_DIR}/pixelSize.sh'
 
     # for new Swift
     #export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH
@@ -70,6 +79,8 @@ if [ "`uname -s`" == "Darwin" ];then
 
     export DERIVED=~/Library/Developer/Xcode/DerivedData
     alias resetd='rm -rf $DERIVED/*'
+    alias resetdd='resetd && snapshot reset_simulators'
+	export SNAPSHOT_FORCE_DELETE=true
     alias disableats='$SCRIPTS_DIR/disableats.sh'
 
 fi
