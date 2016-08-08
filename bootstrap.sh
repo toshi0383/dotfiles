@@ -74,6 +74,7 @@ install_additional_commands() {
         $INSTALL_COMMAND hub
         $INSTALL_COMMAND swiftlint
         $INSTALL_COMMAND carthage
+        $INSTALL_COMMAND coreutils
         $GEM_INSTALL fastlane
         $GEM_INSTALL sigh
     fi
