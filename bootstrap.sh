@@ -14,9 +14,9 @@ fi
 
 SSHKEY=~/.ssh/id_rsa.pub
 if [ ! -f $SSHKEY ];then
-    echo -e "${RED}${SSHKEY} does not exist. Make sure you generate ssh-key before cloning GitHub repos.${NORMAL}"
-    echo "Exiting..."
-    exit 1;
+    echo -e "Generating ssh key... ${SSHKEY} with no passphrase"
+    ssh-keygen -N "" -f ${SSHKEY}
+    echo -e "${GREEN}Regist this public key for GitHub.${NORMAL}"
 fi
 
 SETTING_DIR=~/Settings
