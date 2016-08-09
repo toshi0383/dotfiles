@@ -36,7 +36,7 @@ else
     PACKAGE_MANAGEMENT_COMMAND=brew
     INSTALL_PACKAGE_MANAGEMENT_COMMAND='/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
     INSTALL_COMMAND="${PACKAGE_MANAGEMENT_COMMAND} install"
-    INSTALL_GUI_COMMAND="sudo ${PACKAGE_MANAGEMENT_COMMAND} cask --quiet install"
+    INSTALL_GUI_COMMAND="sudo ${PACKAGE_MANAGEMENT_COMMAND} cask install"
     UPDATE_COMMAND="${PACKAGE_MANAGEMENT_COMMAND} update"
     UPGRADE_COMMAND="${PACKAGE_MANAGEMENT_COMMAND} upgrade"
     GEM_INSTALL="sudo gem install"
