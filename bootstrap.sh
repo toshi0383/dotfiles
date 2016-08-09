@@ -4,6 +4,8 @@ GREEN="\033[32m"
 YELLOW="\033[33m"
 NORMAL="\033[0;39m"
 
+source ./util.sh
+
 echo -en "${YELLOW}Initializing your environments in your OS `uname -s`. Are you sure ? (y/n):${NORMAL}"
 read line
 
@@ -64,6 +66,7 @@ uninstall_apps() {
 install_additional_commands() {
     if [ ! `which ${PACKAGE_MANAGEMENT_COMMAND}` ];then
         "${INSTALL_PACKAGE_MANAGEMENT_COMMAND}"
+        checkStatus INSTALL_PACKAGE_MANAGEMENT_COMMAND
     fi
     $UPDATE_COMMAND
     for i in tree lv dos2unix npm jq
