@@ -65,7 +65,7 @@ uninstall_apps() {
 
 install_additional_commands() {
     if [ ! `which ${PACKAGE_MANAGEMENT_COMMAND}` ];then
-        "${INSTALL_PACKAGE_MANAGEMENT_COMMAND}"
+        echo "${INSTALL_PACKAGE_MANAGEMENT_COMMAND}" | bash
         checkStatus INSTALL_PACKAGE_MANAGEMENT_COMMAND
     fi
     $UPDATE_COMMAND
