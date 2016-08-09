@@ -32,7 +32,7 @@ if [ "`uname -s`" == "Linux" ];then
     NPM_INSTALL="sudo npm install -g"
 else
     PACKAGE_MANAGEMENT_COMMAND=brew
-    INSTALL_PACKAGE_MANAGEMENT_COMMAND="/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    INSTALL_PACKAGE_MANAGEMENT_COMMAND='/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
     INSTALL_COMMAND="${PACKAGE_MANAGEMENT_COMMAND} install"
     INSTALL_GUI_COMMAND="sudo ${PACKAGE_MANAGEMENT_COMMAND} cask --quiet install"
     UPDATE_COMMAND="${PACKAGE_MANAGEMENT_COMMAND} update"
@@ -113,7 +113,7 @@ clone_my_scripts() {
 }
 
 install_swift() {
-    echo -en "${YELLOW}Install Swift ?(y/n):${NORMAL}"
+    echo -en '${YELLOW}Install Swift ?(y/n):${NORMAL}'
     read line
     if [ $line != "y" ];then
         return
@@ -129,7 +129,7 @@ install_java() {
     if [ "`uname -s`" != "Linux" ];then
         return;
     fi
-    echo -en "${YELLOW}Install Java ?(y/n):${NORMAL}"
+    echo -en '${YELLOW}Install Java ?(y/n):${NORMAL}'
     read line
     if [ $line != "y" ];then
         return
