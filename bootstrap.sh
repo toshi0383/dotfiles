@@ -63,7 +63,7 @@ uninstall_apps() {
 
 install_additional_commands() {
     if [ ! `which ${PACKAGE_MANAGEMENT_COMMAND}` ];then
-        ${INSTALL_PACKAGE_MANAGEMENT_COMMAND}
+        "${INSTALL_PACKAGE_MANAGEMENT_COMMAND}"
     fi
     $UPDATE_COMMAND
     for i in tree lv dos2unix npm jq
