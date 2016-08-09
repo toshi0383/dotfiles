@@ -172,4 +172,6 @@ install_java
 make_sure_everything_is_up_to_date
 
 echo -e "${GREEN}Finished bootstrapping. Please restart your Terminal.${NORMAL}"
+echo -e "${GREEN}You might need to fixup directory permissions for brew or brew-cask to work.${NORMAL}"
+echo -e "${GREEN}Good Luck !${NORMAL}"
 
