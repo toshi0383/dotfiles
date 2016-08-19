@@ -116,7 +116,7 @@ clone_my_scripts() {
 }
 
 install_swift() {
-    echo -en '${YELLOW}Install Swift ?(y/n):${NORMAL}'
+    echo -en "${YELLOW}Install Swift ?(y/n):${NORMAL}"
     read line
     if [ $line != "y" ];then
         return
@@ -132,7 +132,7 @@ install_java() {
     if [ "`uname -s`" != "Linux" ];then
         return;
     fi
-    echo -en '${YELLOW}Install Java ?(y/n):${NORMAL}'
+    echo -en "${YELLOW}Install Java ?(y/n):${NORMAL}"
     read line
     if [ $line != "y" ];then
         return
