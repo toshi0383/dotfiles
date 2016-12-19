@@ -2,9 +2,9 @@ SETTING_DIR=~/Settings
 SCRIPTS_DIR=$SETTING_DIR/scripts
 
 if [ "`uname -s`" == "Linux" ];then
-    alias update='sudo apt-get update && sudo npm update -g'
+    alias update='sudo apt-get update ; sudo npm update -g'
 else
-    alias update='brew update && brew upgrade && sudo gem update -N && sudo gem cleanup && npm update -g'
+    alias update='brew update && brew upgrade ; sudo gem update -N && sudo gem cleanup ; npm update -g'
 fi
 
 if [ "`uname -s`" == "Linux" ];then
