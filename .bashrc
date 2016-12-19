@@ -42,6 +42,8 @@ alias openprfor='~/Settings/scripts/open-pull-request-for.sh'
 
 alias gcl='git clone'
 
+export PATH=~/github/markdown-resume/bin:$PATH
+
 export GOPATH=~/gohome
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:~/Settings/scripts

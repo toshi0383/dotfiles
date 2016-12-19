@@ -170,6 +170,8 @@ clone_my_scripts
 
 install_java
 
+git clone git@github.com:there4/markdown-resume.git $GITHUB_DIR/markdown-resume
+
 make_sure_everything_is_up_to_date
 
 echo -e "${GREEN}Finished bootstrapping. Please restart your Terminal.${NORMAL}"
