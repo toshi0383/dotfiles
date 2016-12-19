@@ -63,6 +63,8 @@ if [ "`uname -s`" == "Darwin" ];then
     alias opace='openx *pace'
 	alias uuid='~/Settings/scripts/printUUIDofMobileprovision.sh'
     alias size='${SCRIPTS_DIR}/pixelSize.sh'
+    alias cmsdecrypt='security cms -D -i'
+    alias plbuddy='/usr/libexec/PlistBuddy'
 
     # for new Swift
     #export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH
@@ -73,17 +75,15 @@ if [ "`uname -s`" == "Darwin" ];then
     export PATH=$PATH:/Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Versions/A/Support
     #$(dirname "$(find $(dirname $(xcode-select -p)) -name altool | head -1)")
 
-    # swiftenv
-    #export SWIFTENV_ROOT=~/.swiftenv
-    #export PATH=$SWIFTENV_ROOT/bin:$PATH
-    #eval $(swiftenv init -)
-
     alias objc2swift='java -jar /Users/toshi0383/github/objc2swift/build/libs/objc2swift-1.0.jar'
 
     export DERIVED=~/Library/Developer/Xcode/DerivedData
     alias resetd='rm -rf $DERIVED/*'
-    alias resetdd='resetd && snapshot reset_simulators'
+    alias resetdd='resetd && fastlane snapshot reset_simulators'
 	export SNAPSHOT_FORCE_DELETE=true
     alias disableats='$SCRIPTS_DIR/disableats.sh'
 
+    # Workaround for Sierra
+    export GEM_HOME=$HOME/Software/ruby
+    export PATH=$PATH:$GEM_HOME/bin
 fi
