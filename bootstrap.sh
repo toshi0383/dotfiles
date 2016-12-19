@@ -88,6 +88,7 @@ install_additional_commands() {
         $INSTALL_COMMAND carthage
         $INSTALL_COMMAND coreutils
         $INSTALL_COMMAND git
+        $INSTALL_COMMAND ghi
         $INSTALL_COMMAND gibo
         $INSTALL_COMMAND cloc
         $INSTALL_COMMAND ninja

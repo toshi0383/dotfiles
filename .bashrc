@@ -37,6 +37,7 @@ alias prl='gh pr'
 alias prlu='gh pr --remote upstream'
 alias pro='gh pr -B '
 alias prou='gh pr --remote upstream -B '
+alias ghio='ghi show --web'
 alias openprfor='~/Settings/scripts/open-pull-request-for.sh'
 
 alias gcl='git clone'
