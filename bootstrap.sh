@@ -92,11 +92,10 @@ install_additional_commands() {
         $INSTALL_COMMAND gibo
         $INSTALL_COMMAND cloc
         $INSTALL_COMMAND ninja
-        $INSTALL_GUI_COMMAND android-studio
+        #$INSTALL_GUI_COMMAND android-studio
         $INSTALL_GUI_COMMAND iterm2
         $INSTALL_GUI_COMMAND google-chrome
         $GEM_INSTALL fastlane
-        $GEM_INSTALL sigh
     fi
 }
 
@@ -122,7 +121,7 @@ install_swift() {
     if [ $line != "y" ];then
         return
     fi
-    git clone git@github.com:apple/swift.git ~/github/swift
+    git clone git@github.com:apple/swift.git $GITHUB_DIR/swift
     if [ "`uname -s`" == "Linux" ];then
         source ./install_swift_dependencies_for_linux.sh
         install_swift_dependencies_for_ubuntu
