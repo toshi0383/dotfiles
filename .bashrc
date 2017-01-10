@@ -22,10 +22,9 @@ export EDITOR=vi
 
 # alias javac='javac -J-Duser.language=en'
 
-MAIN_BRANCH=
-
-alias devp='git checkout $MAIN_BRANCH'
-alias devp='git checkout $MAIN_BRANCH && git pull --ff-only'
+# toshi0383
+export GITHUB_API_TOKEN=de79012ae3da6f9ac796f2715a7ad59075d34b32
+export GITHUB_TOKEN=$GITHUB_API_TOKEN
 alias pu='g pu'
 alias puf='g pu -f'
 alias pr='hub pull-request'
@@ -45,6 +44,7 @@ alias gcl='git clone'
 export PATH=~/github/markdown-resume/bin:$PATH
 
 export GOPATH=~/gohome
+export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:~/Settings/scripts
 export PS1='\W $ '
@@ -55,6 +55,7 @@ export PATH=$PATH:/usr/local/lib/node_modules
 if [ "`uname -s`" == "Darwin" ];then
     # Xcode
     export PATH=$PATH:`xcode-select -p`/usr/bin
+    export PATH="$HOME/.fastlane/bin:$PATH"
     alias xselp='xcode-select -p'
     alias xsels='sudo xcode-select -s'
     alias openx='open -a `xselp`/../..'
@@ -82,6 +83,11 @@ if [ "`uname -s`" == "Darwin" ];then
     alias resetdd='resetd && fastlane snapshot reset_simulators'
 	export SNAPSHOT_FORCE_DELETE=true
     alias disableats='$SCRIPTS_DIR/disableats.sh'
+
+	export PATH=$PATH:`xcode-select -p`/../SharedFrameworks/DTDeviceKitBase.framework/Versions/A/Resources/
+
+    # swift-protobuf
+    export PATH=$PATH:/Users/toshi0383/.protoc/
 
     # Workaround for Sierra
     export GEM_HOME=$HOME/Software/ruby
