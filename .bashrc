@@ -23,8 +23,6 @@ export EDITOR=vi
 # alias javac='javac -J-Duser.language=en'
 
 # toshi0383
-export GITHUB_API_TOKEN=de79012ae3da6f9ac796f2715a7ad59075d34b32
-export GITHUB_TOKEN=$GITHUB_API_TOKEN
 alias pu='g pu'
 alias puf='g pu -f'
 alias pr='hub pull-request'
