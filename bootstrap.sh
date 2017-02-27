@@ -4,7 +4,14 @@ GREEN="\033[32m"
 YELLOW="\033[33m"
 NORMAL="\033[0;39m"
 
-source ./util.sh
+function checkStatus {
+    status=$?
+    if [ $status -ne 0 ];then
+        echo "Encountered an error, aborting!" >&2
+        echo $@
+        exit $status
+    fi
+}
 
 echo -en "${YELLOW}Initializing your environments in your OS `uname -s`. Are you sure ? (y/n):${NORMAL}"
 read line
