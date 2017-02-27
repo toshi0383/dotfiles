@@ -144,11 +144,11 @@ install_java() {
 }
 
 
-if [ ! -d $SETTING_DIR ];
+if [ ! -d $SETTING_DIR ];then
     mkdir $SETTING_DIR
     cd $SETTING_DIR
 fi
-if [ ! -d $SETTING_DIR/dotfiles ];
+if [ ! -d $SETTING_DIR/dotfiles ];then
     git clone git@github.com:toshi0383/dotfiles.git
 fi
 cd $SETTING_DIR/dotfiles
