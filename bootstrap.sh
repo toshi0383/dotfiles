@@ -159,6 +159,12 @@ copy_dotfiles_ifneeded() {
     copy .gitconfig
 }
 
+touch_bash_profile() {
+    if [ ! -f ~/.bash_profile ];then
+        echo "source ~/.bashrc" > ~/.bash_profile
+    fi
+}
+
 if [ "`uname -s`" == "Linux" ];then
     which setxkbmap > /dev/null
     if [ $? -ne 0 ];then
@@ -186,6 +192,8 @@ install_java
 git clone git@github.com:there4/markdown-resume.git $GITHUB_DIR/markdown-resume
 
 make_sure_everything_is_up_to_date
+
+touch_bash_profile
 
 echo -e "${GREEN}Finished bootstrapping. Please restart your Terminal.${NORMAL}"
 echo -e "${GREEN}You might need to fixup directory permissions for brew or brew-cask to work.${NORMAL}"
