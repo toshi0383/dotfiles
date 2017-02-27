@@ -14,7 +14,7 @@ if [ $line != y ];then
     exit 1;
 fi
 
-SSHKEY=~/.ssh/id_rsa.pub
+SSHKEY=~/.ssh/github_rsa
 if [ ! -f $SSHKEY ];then
     echo -e "Generating ssh key... ${SSHKEY} with no passphrase"
     ssh-keygen -N "" -f ${SSHKEY}
