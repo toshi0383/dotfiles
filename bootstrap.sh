@@ -143,6 +143,16 @@ install_java() {
     sudo apt-get install oracle-java8-set-default
 }
 
+
+if [ ! -d $SETTING_DIR ];
+    mkdir $SETTING_DIR
+    cd $SETTING_DIR
+fi
+if [ ! -d $SETTING_DIR/dotfiles ];
+    git clone git@github.com:toshi0383/dotfiles.git
+fi
+cd $SETTING_DIR/dotfiles
+
 copy .bashrc
 copy .vimrc
 copy .gitconfig
