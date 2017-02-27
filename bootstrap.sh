@@ -143,19 +143,21 @@ install_java() {
     sudo apt-get install oracle-java8-set-default
 }
 
+# dependency: git
+copy_dotfiles_ifneeded() {
+    if [ ! -d $SETTING_DIR ];then
+        mkdir $SETTING_DIR
+    fi
+    cd $SETTING_DIR
+    if [ ! -d $SETTING_DIR/dotfiles ];then
+        git clone git@github.com:toshi0383/dotfiles.git
+    fi
+    cd $SETTING_DIR/dotfiles
 
-if [ ! -d $SETTING_DIR ];then
-    mkdir $SETTING_DIR
-fi
-cd $SETTING_DIR
-if [ ! -d $SETTING_DIR/dotfiles ];then
-    git clone git@github.com:toshi0383/dotfiles.git
-fi
-cd $SETTING_DIR/dotfiles
-
-copy .bashrc
-copy .vimrc
-copy .gitconfig
+    copy .bashrc
+    copy .vimrc
+    copy .gitconfig
+}
 
 if [ "`uname -s`" == "Linux" ];then
     which setxkbmap > /dev/null
@@ -174,6 +176,8 @@ get_rid_of_vim_tiny
 setup_dirs
 
 clone_my_scripts
+
+copy_dotfiles_ifneeded
 
 # install_swift
 
