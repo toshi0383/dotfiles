@@ -18,7 +18,7 @@ SSHKEY=~/.ssh/id_rsa.pub
 if [ ! -f $SSHKEY ];then
     echo -e "Generating ssh key... ${SSHKEY} with no passphrase"
     ssh-keygen -N "" -f ${SSHKEY}
-    echo -e "${GREEN}Regist this public key for GitHub.${NORMAL}"
+    echo -e "${GREEN}Register this public key for GitHub.${NORMAL}"
 fi
 
 SETTING_DIR=~/Settings
