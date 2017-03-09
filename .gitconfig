@@ -45,7 +45,6 @@
   br = branch
   brd = branch -d
   brdf = branch -df
-  brddf = !sh -c \"git branch -df topic/redmine${1}\"
   clean = !git branch -d ${1} && git checkout -b ${1}
   wipe = !sh -c \"git branch -d ${1} && git push origin --delete ${1}\"
   delete-remote = !sh -c \"git push origin --delete ${1}\"
