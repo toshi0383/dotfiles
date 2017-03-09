@@ -18,6 +18,7 @@
   pu = !git push origin `git rev-parse --abbrev-ref HEAD`
   puu = push -u
   c = commit -v
+  cat = !git show $(git ls-tree ${1} ${2} | cut -d \" \" -f 3 | cut -f 1)
   f = fetch
   fa = fetch --all --prune --tag
   fixup = commit --fixup
