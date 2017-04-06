@@ -28,7 +28,7 @@ if [ ! -f $SSHKEY ];then
     echo -e "${GREEN}Register this public key for GitHub.${NORMAL}"
 fi
 
-SETTING_DIR=~/Settings
+SETTING_DIR=~/settings
 SCRIPTS_DIR=$SETTING_DIR/scripts
 GITHUB_DIR=~/github
 

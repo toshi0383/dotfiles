@@ -1,8 +1,8 @@
 # usage
 ## clone and run bootstrap.sh
 ```
-mkdir ~/Settings
-cd ~/Settings
+mkdir ~/settings
+cd ~/settings
 git clone git@github.com/toshi0383/dotfiles.git
 cd dotfiles
 ./bootstrap.sh

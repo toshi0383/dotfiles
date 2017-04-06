@@ -1,4 +1,4 @@
-SETTING_DIR=~/Settings
+SETTING_DIR=~/settings
 SCRIPTS_DIR=$SETTING_DIR/scripts
 
 if [ "`uname -s`" == "Linux" ];then
@@ -35,7 +35,7 @@ alias prlu='gh pr --remote upstream'
 alias pro='gh pr -B '
 alias prou='gh pr --remote upstream -B '
 alias ghio='ghi show --web'
-alias openprfor='~/Settings/scripts/open-pull-request-for.sh'
+alias openprfor='~/settings/scripts/open-pull-request-for.sh'
 
 alias gcl='git clone'
 
@@ -44,7 +44,7 @@ export PATH=~/github/markdown-resume/bin:$PATH
 export GOPATH=~/gohome
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:~/Settings/scripts
+export PATH=$PATH:~/settings/scripts
 export PS1='\W $ '
 
 export PATH=$PATH:/usr/local/lib/node_modules
@@ -60,7 +60,7 @@ if [ "`uname -s`" == "Darwin" ];then
     alias fuckoff='sudo rm -rf /Applications/Xcode.app/'
     alias oproj='openx *proj'
     alias opace='openx *pace'
-	alias uuid='~/Settings/scripts/printUUIDofMobileprovision.sh'
+	alias uuid='~/settings/scripts/printUUIDofMobileprovision.sh'
     alias size='${SCRIPTS_DIR}/pixelSize.sh'
     alias cmsdecrypt='security cms -D -i'
     alias plbuddy='/usr/libexec/PlistBuddy'
