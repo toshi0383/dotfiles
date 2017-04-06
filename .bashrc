@@ -60,21 +60,14 @@ if [ "`uname -s`" == "Darwin" ];then
     alias fuckoff='sudo rm -rf /Applications/Xcode.app/'
     alias oproj='openx *proj'
     alias opace='openx *pace'
-	alias uuid='~/settings/scripts/printUUIDofMobileprovision.sh'
+	alias uuid='~/Settings/scripts/printUUIDofMobileprovision.sh'
     alias size='${SCRIPTS_DIR}/pixelSize.sh'
     alias cmsdecrypt='security cms -D -i'
     alias plbuddy='/usr/libexec/PlistBuddy'
 
-    # for new Swift
-    #export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH
-
-    #eval "$(hub alias -s)"
-
     # altool
     export PATH=$PATH:/Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Versions/A/Support
     #$(dirname "$(find $(dirname $(xcode-select -p)) -name altool | head -1)")
-
-    alias objc2swift='java -jar /Users/toshi0383/github/objc2swift/build/libs/objc2swift-1.0.jar'
 
     export DERIVED=~/Library/Developer/Xcode/DerivedData
     alias resetd='rm -rf $DERIVED/*'
