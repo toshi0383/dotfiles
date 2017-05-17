@@ -16,6 +16,7 @@ else
     alias ll='ls -l'
 fi
 alias lrt='ll -rt'
+alias mkdir='mkdir -p'
 alias g='git'
 
 export EDITOR=vi
@@ -35,7 +36,6 @@ alias prlu='gh pr --remote upstream'
 alias pro='gh pr -B '
 alias prou='gh pr --remote upstream -B '
 alias ghio='ghi show --web'
-alias openprfor='~/settings/scripts/open-pull-request-for.sh'
 
 alias gcl='git clone'
 
@@ -58,9 +58,9 @@ if [ "`uname -s`" == "Darwin" ];then
     alias xsels='sudo xcode-select -s'
     alias openx='open -a `xselp`/../..'
     alias fuckoff='sudo rm -rf /Applications/Xcode.app/'
-    alias oproj='openx *proj'
-    alias opace='openx *pace'
-	alias uuid='~/Settings/scripts/printUUIDofMobileprovision.sh'
+    alias oproj='openx *xcodeproj'
+    alias opace='openx *xcworkspace'
+    alias uuid='${SCRIPTS_DIR}/printUUIDofMobileprovision.sh'
     alias size='${SCRIPTS_DIR}/pixelSize.sh'
     alias cmsdecrypt='security cms -D -i'
     alias plbuddy='/usr/libexec/PlistBuddy'
@@ -75,10 +75,10 @@ if [ "`uname -s`" == "Darwin" ];then
 	export SNAPSHOT_FORCE_DELETE=true
     alias disableats='$SCRIPTS_DIR/disableats.sh'
 
-	export PATH=$PATH:`xcode-select -p`/../SharedFrameworks/DTDeviceKitBase.framework/Versions/A/Resources/
+	export PATH=$PATH:`xcode-select -p`/../SharedFrameworks/DTDeviceKitBase.framework/Versions/A/Resources
 
     # swift-protobuf
-    export PATH=$PATH:/Users/toshi0383/.protoc/
+    export PATH=$PATH:/Users/toshi0383/.protoc
 
     # Workaround for Sierra
     export GEM_HOME=$HOME/Software/ruby
