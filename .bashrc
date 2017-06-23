@@ -38,6 +38,7 @@ alias prou='gh pr --remote upstream -B '
 alias ghio='ghi show --web'
 
 alias gcl='git clone'
+alias yyyymmdd='date +%Y-%m-%d'
 
 export PATH=~/github/markdown-resume/bin:$PATH
 
