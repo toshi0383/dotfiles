@@ -24,6 +24,10 @@ export EDITOR=vi
 # alias javac='javac -J-Duser.language=en'
 
 # toshi0383
+alias gs='git status'
+alias gc='git commit'
+alias ga='git add'
+alias gp='git pull'
 alias pu='g pu'
 alias puf='g pu -f'
 alias pr='hub pull-request'
