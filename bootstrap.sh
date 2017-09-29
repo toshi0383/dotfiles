@@ -103,6 +103,7 @@ install_additional_commands() {
         $INSTALL_GUI_COMMAND iterm2
         $INSTALL_GUI_COMMAND google-chrome
         $GEM_INSTALL fastlane
+        $GEM_INSTALL watchbuild
     fi
 }
 
