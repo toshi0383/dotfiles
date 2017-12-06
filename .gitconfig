@@ -53,7 +53,7 @@
   stl = stash list
   ga = !sh -c \"git grep ${1} `git rev-list --all`\"
   bra = branch -a
-  brset = !sh -c \"git branch --set-upstream-to=origin/${1} ${1}\"
+  brset = !sh -c \"cmdshelf run \\\\\"git/brset $1\\\\\"\"
   brsetu = !sh -c \"git branch --set-upstream-to=upstream/${1} ${1}\"
   pullum = pull upstream master
   pullu = pull upstream
