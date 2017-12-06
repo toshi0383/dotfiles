@@ -105,6 +105,7 @@ install_additional_commands() {
         $INSTALL_GUI_COMMAND google-chrome
         $GEM_INSTALL fastlane
         $GEM_INSTALL watchbuild
+        curl https://www.iterm2.com/utilities/imgcat -o /usr/local/bin/imgcat
     fi
 }
 
