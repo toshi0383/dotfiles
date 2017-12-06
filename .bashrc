@@ -88,4 +88,19 @@ if [ "`uname -s`" == "Darwin" ];then
     # Workaround for Sierra
     export GEM_HOME=$HOME/Software/ruby
     export PATH=$PATH:$GEM_HOME/bin
+
+    # cmdshelf
+    alias cmdshelf-debug='~/github/cmdshelf/.build/debug/cmdshelf'
+    alias run='cmdshelf run'
+    alias list='cmdshelf list'
 fi
+function command_not_found_handle(){
+  if [ -e /usr/local/bin/imgcat ];then
+    if [ -f ~/Documents/rivai-small.jpg ];then
+      /usr/local/bin/imgcat ~/Documents/rivai-small.jpg
+    fi
+  fi
+  echo "$1?"
+  echo "全然なってない。全部やり直せ。"
+}
+
