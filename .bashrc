@@ -21,8 +21,6 @@ alias g='git'
 
 export EDITOR=vi
 
-# alias javac='javac -J-Duser.language=en'
-
 # toshi0383
 alias gs='git status'
 alias gc='git commit'
@@ -43,6 +41,7 @@ alias ghio='ghi show --web'
 
 alias gcl='git clone'
 alias yyyymmdd='date +%Y-%m-%d'
+alias unixtime='date +%s'
 
 export PATH=~/github/markdown-resume/bin:$PATH
 
@@ -62,7 +61,6 @@ if [ "`uname -s`" == "Darwin" ];then
     alias xselp='xcode-select -p'
     alias xsels='sudo xcode-select -s'
     alias openx='open -a `xselp`/../..'
-    alias fuckoff='sudo rm -rf /Applications/Xcode.app/'
     alias oproj='openx *xcodeproj'
     alias opace='openx *xcworkspace'
     alias uuid='${SCRIPTS_DIR}/printUUIDofMobileprovision.sh'
