@@ -98,7 +98,8 @@ install_additional_commands() {
         $INSTALL_COMMAND ghi
         $INSTALL_COMMAND gibo
         $INSTALL_COMMAND cloc
-        $INSTALL_COMMAND ninja
+        $INSTALL_COMMAND gnu-sed
+        $INSTALL_COMMAND gawk
         #$INSTALL_GUI_COMMAND android-studio
         $INSTALL_GUI_COMMAND iterm2
         $INSTALL_GUI_COMMAND google-chrome
