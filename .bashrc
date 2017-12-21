@@ -91,6 +91,8 @@ if [ "`uname -s`" == "Darwin" ];then
     alias cmdshelf-debug='~/github/cmdshelf/.build/debug/cmdshelf'
     alias run='cmdshelf run'
     alias list='cmdshelf list'
+    alias approve='cmdshelf run github/pr-approve'
+    alias design='cmdshelf run design/init_design.sh'
 fi
 function command_not_found_handle(){
   if [ -e /usr/local/bin/imgcat ];then
