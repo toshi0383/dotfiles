@@ -29,7 +29,6 @@ if [ ! -f $SSHKEY ];then
 fi
 
 SETTING_DIR=~/settings
-SCRIPTS_DIR=$SETTING_DIR/scripts
 GITHUB_DIR=~/github
 
 if [ "`uname -s`" == "Linux" ];then
@@ -119,11 +118,11 @@ get_rid_of_vim_tiny() {
 setup_dirs() {
     mkdir -p $GITHUB_DIR
     mkdir -p ~/dev/tmp
-    mkdir -p $SCRIPTS_DIR
 }
 
-clone_my_scripts() {
-    git clone git@github.com:toshi0383/scripts.git $SCRIPTS_DIR
+setup_cmdshelf() {
+    bash <(curl -sL https://raw.githubusercontent.com/toshi0383/scripts/master/swiftpm/install.sh) toshi0383/cmdshelf
+    cmdshelf remote add toshi0383 git@github.com:toshi0383/scripts.git
 }
 
 install_swift() {
@@ -192,7 +191,7 @@ get_rid_of_vim_tiny
 
 setup_dirs
 
-clone_my_scripts
+setup_cmdshelf
 
 copy_dotfiles_ifneeded
 
