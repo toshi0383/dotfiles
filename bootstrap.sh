@@ -75,6 +75,8 @@ install_additional_commands() {
         checkStatus INSTALL_PACKAGE_MANAGEMENT_COMMAND
     fi
     $UPDATE_COMMAND
+
+    ## NOTE: mac2unix comes with dos2unix
     for i in tree lv dos2unix npm jq
     do
         which $i > /dev/null
