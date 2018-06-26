@@ -93,6 +93,9 @@ if [ "`uname -s`" == "Darwin" ];then
     alias list='cmdshelf list'
     alias approve='cmdshelf run github/pr-approve'
     alias design='cmdshelf run design/init_design.sh'
+
+    # bash_completion.d
+    for f in $(ls /usr/local/etc/bash_completion.d/); do source /usr/local/etc/bash_completion.d/$f; done
 fi
 function command_not_found_handle(){
   if [ -e /usr/local/bin/imgcat ];then
