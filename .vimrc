@@ -65,9 +65,6 @@ set splitright
 " yankされる最大行数の指定だったような
 set viminfo='20,\"1000
 
-" Pathogen
-execute pathogen#infect()
-
 "=================dein================
 " プラグインが実際にインストールされるディレクトリ
 let s:dein_dir = expand('~/.cache/dein')
