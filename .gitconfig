@@ -19,6 +19,8 @@
   puu = push -u
   c = commit -v
   cat = !git show $(git ls-tree ${1} ${2} | cut -d \" \" -f 3 | cut -f 1)
+  cp = cherry-pick
+  curbr = !git branch | grep ^\\* | cut -d ' ' -f 2
   f = fetch
   fa = fetch --all --prune --tag
   fixup = commit --fixup
