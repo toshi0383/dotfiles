@@ -92,6 +92,7 @@ install_additional_commands() {
     if [ "`uname -s`" == "Darwin" ];then
         $INSTALL_COMMAND hub
         $INSTALL_COMMAND swiftgen
+        $INSTALL_COMMAND chisel
         $INSTALL_COMMAND carthage
         $INSTALL_COMMAND coreutils
         $INSTALL_COMMAND git
@@ -165,6 +166,7 @@ copy_dotfiles_ifneeded() {
     cd $SETTING_DIR/dotfiles
 
     copy .bashrc
+    copy .lldbinit
     copy .vimrc
     copy .gitconfig
 }
