@@ -207,5 +207,7 @@ touch_bash_profile
 
 echo -e "${GREEN}Finished bootstrapping. Please restart your Terminal.${NORMAL}"
 echo -e "${GREEN}You might need to fixup directory permissions for brew or brew-cask to work.${NORMAL}"
+echo -e "${GREEN}You might also want to download additional tools below.${NORMAL}"
+echo -e "${GREEN}- [TotalSpaces2] https://totalspaces.binaryage.com${NORMAL}"
 echo -e "${GREEN}Good Luck !${NORMAL}"
 
