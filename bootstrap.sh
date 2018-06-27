@@ -107,6 +107,8 @@ install_additional_commands() {
         $INSTALL_COMMAND fd
         #$INSTALL_GUI_COMMAND android-studio
         $INSTALL_GUI_COMMAND iterm2
+        curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
+
         $INSTALL_GUI_COMMAND google-chrome
         curl https://www.iterm2.com/utilities/imgcat -o /usr/local/bin/imgcat
     fi
@@ -189,6 +191,9 @@ fi
 
 uninstall_apps
 
+# Needs to precede install_additional_commands
+touch_bash_profile
+
 install_additional_commands
 
 get_rid_of_vim_tiny
@@ -206,8 +211,6 @@ install_java
 # git clone git@github.com:there4/markdown-resume.git $GITHUB_DIR/markdown-resume
 
 make_sure_everything_is_up_to_date
-
-touch_bash_profile
 
 echo -e "${GREEN}Finished bootstrapping. Please restart your Terminal.${NORMAL}"
 echo -e "${GREEN}You might need to fixup directory permissions for brew or brew-cask to work.${NORMAL}"
