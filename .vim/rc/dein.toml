@@ -47,3 +47,13 @@ repo = 'Shougo/vimfiler'
 # 行末スペースを赤く表示
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
+
+# QuickRun
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
+# GBlameなど
+# [[plugins]]
+# repo = 'tpope/vim-fugitive'
+# [[plugins]]
+# repo = 'airblade/vim-gitgutter'
