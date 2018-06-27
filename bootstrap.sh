@@ -189,6 +189,15 @@ if [ "`uname -s`" == "Linux" ];then
     copy .Xmodmap
 fi
 
+if [ "`uname -s`" == "Darwin" ];then
+    echo -e "${NORMAL}Bootstrapping starting. You might want to download additional tools below manually.${NORMAL}"
+    echo -e "${NORMAL}- [TotalSpaces2] https://totalspaces.binaryage.com${NORMAL}"
+    echo -e "${NORMAL}- [gitup] http://gitup.co${NORMAL}"
+    echo -e "${NORMAL}- [Xcode] https://developer.apple.com/download/more${NORMAL}"
+    echo -e "${NORMAL}I open URLs for you.${NORMAL}"
+    open https://totalspaces.binaryage.com http://gitup.co https://developer.apple.com/download/more
+fi
+
 uninstall_apps
 
 # Needs to precede install_additional_commands
@@ -214,7 +223,5 @@ make_sure_everything_is_up_to_date
 
 echo -e "${GREEN}Finished bootstrapping. Please restart your Terminal.${NORMAL}"
 echo -e "${GREEN}You might need to fixup directory permissions for brew or brew-cask to work.${NORMAL}"
-echo -e "${GREEN}You might also want to download additional tools below.${NORMAL}"
-echo -e "${GREEN}- [TotalSpaces2] https://totalspaces.binaryage.com${NORMAL}"
 echo -e "${GREEN}Good Luck !${NORMAL}"
 
