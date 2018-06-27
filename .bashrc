@@ -1,5 +1,4 @@
 SETTING_DIR=~/settings
-SCRIPTS_DIR=$SETTING_DIR/scripts
 
 if [ "`uname -s`" == "Linux" ];then
     alias update='sudo apt-get update ; sudo npm update -g'
@@ -48,7 +47,6 @@ export PATH=~/github/markdown-resume/bin:$PATH
 export GOPATH=~/gohome
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:~/settings/scripts
 export PS1='\W $ '
 
 export PATH=$PATH:/usr/local/lib/node_modules
@@ -63,8 +61,6 @@ if [ "`uname -s`" == "Darwin" ];then
     alias openx='open -a `xselp`/../..'
     alias oproj='openx *xcodeproj'
     alias opace='openx *xcworkspace'
-    alias uuid='${SCRIPTS_DIR}/printUUIDofMobileprovision.sh'
-    alias size='${SCRIPTS_DIR}/pixelSize.sh'
     alias cmsdecrypt='security cms -D -i'
     alias plbuddy='/usr/libexec/PlistBuddy'
 
@@ -76,7 +72,6 @@ if [ "`uname -s`" == "Darwin" ];then
     alias resetd='rm -rf $DERIVED/*'
     alias resetdd='resetd && fastlane snapshot reset_simulators'
 	export SNAPSHOT_FORCE_DELETE=true
-    alias disableats='$SCRIPTS_DIR/disableats.sh'
 
 	export PATH=$PATH:`xcode-select -p`/../SharedFrameworks/DTDeviceKitBase.framework/Versions/A/Resources
 
