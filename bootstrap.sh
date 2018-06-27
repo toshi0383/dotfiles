@@ -91,12 +91,12 @@ install_additional_commands() {
 
     if [ "`uname -s`" == "Darwin" ];then
         $INSTALL_COMMAND hub
-        $INSTALL_COMMAND swiftlint
         $INSTALL_COMMAND swiftgen
         $INSTALL_COMMAND carthage
         $INSTALL_COMMAND coreutils
         $INSTALL_COMMAND git
         $INSTALL_COMMAND ghi
+        $INSTALL_COMMAND ffmpeg
         $INSTALL_COMMAND gibo
         $INSTALL_COMMAND cloc
         $INSTALL_COMMAND gnu-sed
@@ -105,8 +105,6 @@ install_additional_commands() {
         #$INSTALL_GUI_COMMAND android-studio
         $INSTALL_GUI_COMMAND iterm2
         $INSTALL_GUI_COMMAND google-chrome
-        $GEM_INSTALL fastlane
-        $GEM_INSTALL watchbuild
         curl https://www.iterm2.com/utilities/imgcat -o /usr/local/bin/imgcat
     fi
 }
@@ -201,7 +199,7 @@ copy_dotfiles_ifneeded
 
 install_java
 
-git clone git@github.com:there4/markdown-resume.git $GITHUB_DIR/markdown-resume
+# git clone git@github.com:there4/markdown-resume.git $GITHUB_DIR/markdown-resume
 
 make_sure_everything_is_up_to_date
 
