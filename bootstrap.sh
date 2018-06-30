@@ -114,12 +114,13 @@ install_additional_commands() {
         $INSTALL_COMMAND gnu-sed
         $INSTALL_COMMAND gawk
         $INSTALL_COMMAND fd
-        #$INSTALL_GUI_COMMAND android-studio
         $INSTALL_GUI_COMMAND iterm2
         curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
 
-        $INSTALL_GUI_COMMAND google-chrome
         curl https://www.iterm2.com/utilities/imgcat -o /usr/local/bin/imgcat
+
+        # $INSTALL_GUI_COMMAND android-studio
+        # $INSTALL_GUI_COMMAND google-chrome
     fi
 }
 
