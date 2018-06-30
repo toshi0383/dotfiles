@@ -177,6 +177,7 @@ copy_dotfiles_ifneeded() {
     copy .bashrc
     copy .lldbinit
     copy .vimrc
+    copy .vim
     copy .gitconfig
 }
 
