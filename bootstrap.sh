@@ -53,7 +53,7 @@ fi
 make_sure_everything_is_up_to_date() {
     $UPDATE_COMMAND && $UPGRADE_COMMAND
 
-    gibo -u
+    gibo update
 }
 
 
