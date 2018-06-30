@@ -30,7 +30,11 @@ fi
 
 SETTING_DIR=~/settings
 GITHUB_DIR=~/github
-DOTFILES_DIR=~/settings/dotfile
+DOTFILES_DIR=$SETTING_DIR/dotfiles
+
+if [ ! -e $SETTING_DIR ];then
+    mkdir $SETTING_DIR
+fi
 
 if [ "`uname -s`" == "Linux" ];then
     PACKAGE_MANAGEMENT_COMMAND=apt-get
@@ -165,15 +169,6 @@ install_java() {
 
 # dependency: git
 copy_dotfiles_ifneeded() {
-    if [ ! -d $SETTING_DIR ];then
-        mkdir $SETTING_DIR
-    fi
-    cd $SETTING_DIR
-    if [ ! -d $SETTING_DIR/dotfiles ];then
-        git clone git@github.com:toshi0383/dotfiles.git
-    fi
-    cd $SETTING_DIR/dotfiles
-
     copy .bashrc
     copy .lldbinit
     copy .vimrc
