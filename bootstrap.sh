@@ -102,6 +102,7 @@ install_additional_commands() {
         $INSTALL_COMMAND carthage
         $INSTALL_COMMAND coreutils
         $INSTALL_COMMAND git
+        $INSTALL_COMMAND git-lfs
         $INSTALL_COMMAND ghi
         $INSTALL_COMMAND ffmpeg
         $INSTALL_COMMAND gibo
