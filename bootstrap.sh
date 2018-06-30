@@ -30,6 +30,7 @@ fi
 
 SETTING_DIR=~/settings
 GITHUB_DIR=~/github
+DOTFILES_DIR=~/settings/dotfile
 
 if [ "`uname -s`" == "Linux" ];then
     PACKAGE_MANAGEMENT_COMMAND=apt-get
@@ -57,8 +58,11 @@ make_sure_everything_is_up_to_date() {
 
 
 copy() {
+    if [ ! -e $DOTFILES_DIR ];then
+        git clone https://github.com/toshi0383/dotfiles.git $DOTFILES_DIR
+    fi
     echo -n "Copying ${1} ... "
-    cp $PWD/${1} ~/${1}
+    cp -R $DOTFILES_DIR/${1} ~/${1}
     echo "done"
 }
 
