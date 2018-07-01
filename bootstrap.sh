@@ -102,6 +102,7 @@ install_additional_commands() {
     if [ "`uname -s`" == "Darwin" ];then
         $INSTALL_COMMAND hub
         $INSTALL_COMMAND swiftgen
+        $INSTALL_COMMAND sourcery
         $INSTALL_COMMAND chisel
         $INSTALL_COMMAND carthage
         $INSTALL_COMMAND coreutils
