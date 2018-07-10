@@ -191,6 +191,29 @@ touch_bash_profile() {
     fi
 }
 
+configure_mac() {
+    if [ "`uname -s`" == "Darwin" ];then
+        # Hot corners
+        # Possible values:
+        #  0: no-op
+        #  2: Mission Control
+        #  3: Show application windows
+        #  4: Desktop
+        #  5: Start screen saver
+        #  6: Disable screen saver
+        #  7: Dashboard
+        # 10: Put display to sleep
+        # 11: Launchpad
+        # 12: Notification Center
+        # Top left screen corner → Desktop
+        defaults write com.apple.dock wvous-tl-corner -int 4
+        defaults write com.apple.dock wvous-tl-modifier -int 0
+        # Top right screen corner → Put display to sleep
+        defaults write com.apple.dock wvous-tr-corner -int 5
+        defaults write com.apple.dock wvous-tr-modifier -int 0
+    fi
+}
+
 if [ "`uname -s`" == "Linux" ];then
     which setxkbmap > /dev/null
     if [ $? -ne 0 ];then
@@ -230,6 +253,8 @@ install_java
 # git clone git@github.com:there4/markdown-resume.git $GITHUB_DIR/markdown-resume
 
 make_sure_everything_is_up_to_date
+
+configure_mac
 
 echo -e "${GREEN}Finished bootstrapping. Please restart your Terminal.${NORMAL}"
 echo -e "${GREEN}You might need to fixup directory permissions for brew or brew-cask to work.${NORMAL}"
