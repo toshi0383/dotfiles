@@ -116,6 +116,7 @@ install_additional_commands() {
         $INSTALL_COMMAND gawk
         $INSTALL_COMMAND fd
         $INSTALL_GUI_COMMAND iterm2
+        $INSTALL_GUI_COMMAND charles
         curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
 
         curl https://www.iterm2.com/utilities/imgcat -o /usr/local/bin/imgcat
