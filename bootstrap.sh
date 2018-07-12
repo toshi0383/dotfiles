@@ -50,7 +50,7 @@ else
     INSTALL_GUI_COMMAND="${PACKAGE_MANAGEMENT_COMMAND} cask install"
     UPDATE_COMMAND="${PACKAGE_MANAGEMENT_COMMAND} update"
     UPGRADE_COMMAND="${PACKAGE_MANAGEMENT_COMMAND} upgrade"
-    GEM_INSTALL="sudo gem install"
+    GEM_INSTALL="sudo gem install -N"
     NPM_INSTALL="npm install -g"
 fi
 
@@ -115,6 +115,7 @@ install_additional_commands() {
         $INSTALL_COMMAND gnu-sed
         $INSTALL_COMMAND gawk
         $INSTALL_COMMAND fd
+        $GEM_INSTALL bundler
         $INSTALL_GUI_COMMAND iterm2
         $INSTALL_GUI_COMMAND charles
         curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
