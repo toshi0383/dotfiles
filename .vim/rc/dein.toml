@@ -31,6 +31,9 @@ repo = 'vim-airline/vim-airline-themes'
 repo = 'tomasr/molokai'
 
 [[plugins]]
+repo = 'vim-scripts/applescript.vim'
+
+[[plugins]]
 repo = 'keith/swift.vim'
 
 [[plugins]]
