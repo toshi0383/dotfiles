@@ -115,6 +115,7 @@ install_additional_commands() {
         $INSTALL_COMMAND gnu-sed
         $INSTALL_COMMAND gawk
         $INSTALL_COMMAND fd
+        $INSTALL_COMMAND imagemagick
         $GEM_INSTALL bundler
         $GEM_INSTALL gist
         $INSTALL_GUI_COMMAND iterm2
