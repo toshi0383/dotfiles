@@ -63,6 +63,7 @@ if [ "`uname -s`" == "Darwin" ];then
     alias opace='openx *xcworkspace'
     alias cmsdecrypt='security cms -D -i'
     alias plbuddy='/usr/libexec/PlistBuddy'
+    alias disable-ats='plbuddy -c "Add :NSAppTransportSecurity:NSAllowsArbitraryLoads bool true"'
 
     # altool
     export PATH=$PATH:/Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Versions/A/Support
