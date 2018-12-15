@@ -17,6 +17,10 @@ fi
 alias lrt='ll -rt'
 alias mkdir='mkdir -p'
 alias g='git'
+alias gs='git s'
+alias gd='git d'
+alias gdc='git dc'
+alias gcal="gcal -H '\e[30;47m:\e[0m:\e[30;31m:\e[0m' -q JP"
 
 export EDITOR=vi
 
