@@ -18,6 +18,7 @@
   pu = !git push origin `git rev-parse --abbrev-ref HEAD`
   puu = push -u
   c = commit -v
+  blame-word = !sh -c \"cmdshelf run git/blame-word ${1} ${2}\"
   cat = !git show $(git ls-tree ${1} ${2} | cut -d \" \" -f 3 | cut -f 1)
   cp = cherry-pick
   curbr = !git branch | grep ^\\* | cut -d ' ' -f 2
@@ -58,6 +59,7 @@
   brset = !sh -c \"cmdshelf run git/brset $1\"
   brsetu = !sh -c \"git branch --set-upstream-to=upstream/${1} ${1}\"
   pullu = pull upstream
+  gc-all = gc --prune=all
 
 [filter "lfs"]
   clean = git-lfs clean %f
