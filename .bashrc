@@ -96,6 +96,8 @@ if [ "`uname -s`" == "Darwin" ];then
 
     # bash_completion.d
     for f in $(ls /usr/local/etc/bash_completion.d/); do source /usr/local/etc/bash_completion.d/$f; done
+
+    alias sort-by-last="awk '{print \$NF,\$0 }' | sort -nr | cut -d ' ' -f 2-"
 fi
 function command_not_found_handle(){
   if [ -e /usr/local/bin/imgcat ];then
