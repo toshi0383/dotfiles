@@ -118,3 +118,6 @@ syntax on
 " let g:airline_theme = 'molokai'
 
 let g:vimfiler_as_default_explorer = 1
+
+" For vim-go
+inoremap <C-L> <C-x><C-o>
