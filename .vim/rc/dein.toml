@@ -58,3 +58,6 @@ repo = 'thinca/vim-quickrun'
 # repo = 'tpope/vim-fugitive'
 # [[plugins]]
 # repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'fatih/vim-go'
