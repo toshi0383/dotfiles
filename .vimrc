@@ -106,13 +106,15 @@ endif
 
 " syntaxハイライト関連、だったような
 filetype plugin indent on
-colorscheme molokai
+" colorscheme molokai
+set background=light
+colorscheme PaperColor
 syntax on
 
 
 "==============プラグイン関係の設定==============
 
 
-let g:airline_theme = 'molokai'
+" let g:airline_theme = 'molokai'
 
 let g:vimfiler_as_default_explorer = 1

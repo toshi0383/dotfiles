@@ -28,10 +28,8 @@ depends = ['vim-airline-themes']
 repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]]
-repo = 'tomasr/molokai'
-
-[[plugins]]
-repo = 'vim-scripts/applescript.vim'
+#repo = 'tomasr/molokai'
+repo = 'NLKNguyen/papercolor-theme'
 
 [[plugins]]
 repo = 'keith/swift.vim'
