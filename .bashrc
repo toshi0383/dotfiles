@@ -48,7 +48,7 @@ alias unixtime='date +%s'
 
 export PATH=~/github/markdown-resume/bin:$PATH
 
-export GOPATH=~/gohome
+export GOPATH=$HOME/gohome
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH/bin
 export PS1='\W $ '
@@ -98,7 +98,21 @@ if [ "`uname -s`" == "Darwin" ];then
     for f in $(ls /usr/local/etc/bash_completion.d/); do source /usr/local/etc/bash_completion.d/$f; done
 
     alias sort-by-last="awk '{print \$NF,\$0 }' | sort -nr | cut -d ' ' -f 2-"
+
+    # gvm
+    [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+    function gvmu {
+        gvm use $1 || return
+        export GOPATH=$HOME/gohome
+    }
+
+    # gcloud
+    GCLOUD_BASH_COMPETION=/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc
+    GCLOUD_PATH=/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc
+    [[ -s $GCLOUD_BASH_COMPETION ]] && source $GCLOUD_BASH_COMPETION
+    [[ -d $GCLOUD_PATH ]] && export PATH=$PATH:$GCLOUD_PATH
 fi
+
 function command_not_found_handle(){
   if [ -e /usr/local/bin/imgcat ];then
     if [ -f ~/Documents/rivai-small.jpg ];then
