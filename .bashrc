@@ -16,6 +16,8 @@ else
 fi
 alias lrt='ll -rt'
 alias mkdir='mkdir -p'
+
+# git
 alias g='git'
 alias gs='git s'
 alias gd='git d'
@@ -24,6 +26,11 @@ alias gcal="gcal -H '\e[30;47m:\e[0m:\e[30;31m:\e[0m' -q JP"
 
 # kubernetes
 source $HOME/.kubectl_aliases
+alias kgd='kubectl get deploy'
+alias kge='kubectl get event'
+alias kgew='kubectl get event -w'
+alias ke='kubectl edit'
+alias ked='kubectl edit deploy'
 
 export EDITOR=vi
 
