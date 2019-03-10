@@ -1,0 +1,3 @@
+[submodule "kubectl-aliases"]
+	path = kubectl-aliases
+	url = https://github.com/ahmetb/kubectl-aliases

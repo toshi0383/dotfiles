@@ -22,6 +22,9 @@ alias gd='git d'
 alias gdc='git dc'
 alias gcal="gcal -H '\e[30;47m:\e[0m:\e[30;31m:\e[0m' -q JP"
 
+# kubernetes
+source $HOME/.kubectl_aliases
+
 export EDITOR=vi
 
 # toshi0383

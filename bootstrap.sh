@@ -186,6 +186,7 @@ copy_dotfiles_ifneeded() {
     copy .vimrc
     copy .vim
     copy .gitconfig
+    copy kubectl_aliases/.kubectl_aliases
 }
 
 touch_bash_profile() {
