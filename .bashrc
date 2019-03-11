@@ -33,6 +33,7 @@ alias ke='kubectl edit'
 alias ked='kubectl edit deploy'
 
 export EDITOR=vi
+alias viconflicts="vi \`git status | grep 'both modified' | awk -F: '{print $2}'\`"
 
 # toshi0383
 alias gs='git status'
