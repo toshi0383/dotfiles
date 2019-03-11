@@ -23,6 +23,8 @@ alias gs='git s'
 alias gd='git d'
 alias gdc='git dc'
 alias gcal="gcal -H '\e[30;47m:\e[0m:\e[30;31m:\e[0m' -q JP"
+alias gcam="git commit --amend"
+alias gasw="git add *.swift"
 
 # kubernetes
 source $HOME/.kubectl_aliases
