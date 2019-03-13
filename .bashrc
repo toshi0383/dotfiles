@@ -25,6 +25,8 @@ alias gdc='git dc'
 alias gcal="gcal -H '\e[30;47m:\e[0m:\e[30;31m:\e[0m' -q JP"
 alias gcam="git commit --amend"
 alias gasw="git add *.swift"
+alias gmom="git merge --no-ff origin/master"
+alias grom="git rebase origin/master"
 
 # kubernetes
 source $HOME/.kubectl_aliases
