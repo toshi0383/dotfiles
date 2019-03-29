@@ -121,3 +121,9 @@ let g:vimfiler_as_default_explorer = 1
 
 " For vim-go
 inoremap <C-L> <C-x><C-o>
+
+
+"==============ファイルタイプごとの設定==============
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
+autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
+autocmd FileType yml setlocal shiftwidth=2 tabstop=2
