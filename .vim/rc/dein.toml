@@ -61,3 +61,7 @@ repo = 'thinca/vim-quickrun'
 
 [[plugins]]
 repo = 'fatih/vim-go'
+
+# IDEっぽくするやつ
+[[plugins]]
+repo = 'scrooloose/nerdtree'

@@ -111,6 +111,8 @@ set background=light
 colorscheme PaperColor
 syntax on
 
+" leader
+let mapleader = "\<Space>"
 
 "==============プラグイン関係の設定==============
 
@@ -121,6 +123,10 @@ let g:vimfiler_as_default_explorer = 1
 
 " For vim-go
 inoremap <C-L> <C-x><C-o>
+
+" NERDTree
+nmap <Leader>n :NERDTreeFind<CR>
+nmap <Leader>m :NERDTreeToggle<CR>
 
 
 "==============ファイルタイプごとの設定==============

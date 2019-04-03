@@ -61,11 +61,13 @@ alias gcl='git clone'
 alias yyyymmdd='date +%Y-%m-%d'
 alias unixtime='date +%s'
 
+alias vn='vim -c NERDTree'
+function vnfd {
+    vim -c "NERDTree" `fd "$1" | head -1`
+}
+
 export PATH=~/github/markdown-resume/bin:$PATH
 
-export GOPATH=$HOME/gohome
-export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOPATH/bin
 export PS1='\W $ '
 
 export PATH=$PATH:/usr/local/lib/node_modules
@@ -120,6 +122,10 @@ if [ "`uname -s`" == "Darwin" ];then
         gvm use $1 || return
         export GOPATH=$HOME/gohome
     }
+
+    export GOPATH=$HOME/gohome
+    export GOBIN=$GOPATH/bin
+    export PATH=$PATH:$GOPATH/bin
 
     # gcloud
     GCLOUD_BASH_COMPETION=/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc
