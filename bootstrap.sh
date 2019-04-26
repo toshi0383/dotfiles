@@ -181,12 +181,14 @@ install_java() {
 
 # dependency: git
 copy_dotfiles_ifneeded() {
-    copy .bashrc
-    copy .lldbinit
-    copy .vimrc
-    copy .vim
-    copy .gitconfig
-    copy kubectl_aliases/.kubectl_aliases
+    if [ "`uname -s`" == "Linux" ];then
+        copy .bashrc
+        copy .lldbinit
+        copy .vimrc
+        copy .vim
+        copy .gitconfig
+        copy kubectl_aliases/.kubectl_aliases
+    fi
 }
 
 touch_bash_profile() {
