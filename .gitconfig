@@ -78,3 +78,5 @@
 	user = toshi0383
 [ghi]
 	token = !security find-internet-password -a toshi0383 -s github.com -l 'ghi token' -w
+[url "git@bitbucket.org:"]
+	insteadOf = https://bitbucket.org/

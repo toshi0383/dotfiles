@@ -19,14 +19,30 @@ alias mkdir='mkdir -p'
 
 # git
 alias g='git'
-alias gs='git s'
-alias gd='git d'
-alias gdc='git dc'
+alias gasw="git add *.swift"
+alias gago="git add *.go"
+alias gap="git add -p"
+alias gbr='git branch'
+alias gbra='git branch -a'
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gd='git diff'
+alias gdc='git diff --cached'
 alias gcal="gcal -H '\e[30;47m:\e[0m:\e[30;31m:\e[0m' -q JP"
 alias gcam="git commit --amend"
-alias gasw="git add *.swift"
-alias gmom="git merge --no-ff origin/master"
-alias grom="git rebase origin/master"
+alias gs='git status'
+alias gshow='git show'
+alias gst='git stash'
+alias gstp='git stash pop'
+alias gsubu='git submodule update --init -f'
+
+function ginit() {
+    git init
+    cat >> .gitignore << EOF
+.DS_Store/
+*.swp
+EOF
+}
 
 # kubernetes
 source $HOME/.kubectl_aliases
@@ -37,7 +53,9 @@ alias ke='kubectl edit'
 alias ked='kubectl edit deploy'
 
 export EDITOR=vi
-alias viconflicts="vi \`git status | grep 'both modified' | awk -F: '{print $2}'\`"
+function viconflicts {
+    vi `git status | grep 'both modified' | awk -F: '{print $2}'`
+}
 
 # toshi0383
 alias gs='git status'
@@ -60,6 +78,10 @@ alias ghio='ghi show --web'
 alias gcl='git clone'
 alias yyyymmdd='date +%Y-%m-%d'
 alias unixtime='date +%s'
+
+function vggl {
+    vim `git grep -l $1 $2`
+}
 
 alias vn='vim -c NERDTree'
 function vnfd {
@@ -84,7 +106,6 @@ if [ "`uname -s`" == "Darwin" ];then
     alias opace='openx *xcworkspace'
     alias cmsdecrypt='security cms -D -i'
     alias plbuddy='/usr/libexec/PlistBuddy'
-    alias disable-ats='plbuddy -c "Add :NSAppTransportSecurity:NSAllowsArbitraryLoads bool true"'
 
     # altool
     export PATH=$PATH:/Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Versions/A/Support
@@ -105,12 +126,15 @@ if [ "`uname -s`" == "Darwin" ];then
     export PATH=$PATH:$GEM_HOME/bin
 
     # cmdshelf
-    alias cmdshelf-debug='~/github/cmdshelf/.build/debug/cmdshelf'
     alias run='cmdshelf run'
     alias list='cmdshelf list'
     alias approve='cmdshelf run github/pr-approve'
     alias design='cmdshelf run design/init_design.sh'
 
+    # bash-completion
+    if [ -f /usr/local/share/bash-completion/bash_completion ]; then
+        . /usr/local/share/bash-completion/bash_completion
+    fi
     # bash_completion.d
     for f in $(ls /usr/local/etc/bash_completion.d/); do source /usr/local/etc/bash_completion.d/$f; done
 
@@ -144,3 +168,4 @@ function command_not_found_handle(){
   echo "全然なってない。全部やり直せ。"
 }
 
+alias cdstream='cd /Library/WebServer/Documents/stream'

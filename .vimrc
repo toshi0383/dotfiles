@@ -114,20 +114,29 @@ syntax on
 " leader
 let mapleader = "\<Space>"
 
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>qa :qa<CR>
+nnoremap <Leader>q :q<CR>
+
 "==============プラグイン関係の設定==============
-
-
-" let g:airline_theme = 'molokai'
 
 let g:vimfiler_as_default_explorer = 1
 
 " For vim-go
 inoremap <C-L> <C-x><C-o>
 
-" NERDTree
-nmap <Leader>n :NERDTreeFind<CR>
-nmap <Leader>m :NERDTreeToggle<CR>
+" QuickRun
+nmap <Leader>r :QuickRun<CR>
+nmap <Leader>b :GoBuild<CR>
+nmap <Leader>i :GoImports<CR>
+nmap <Leader>ta :GoTest<CR>
+nmap <Leader>tf :GoTestFunc<CR>
+nmap <Leader>tc :GoTestCompile<CR>
+nmap <Leader>jq :%!jq '.'<CR>
 
+" NERDTree
+nmap <C-n> :NERDTreeFind<CR>
+nmap <C-m> :NERDTreeToggle<CR>
 
 "==============ファイルタイプごとの設定==============
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
