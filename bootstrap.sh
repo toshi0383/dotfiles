@@ -147,8 +147,10 @@ setup_dirs() {
 }
 
 setup_cmdshelf() {
-    bash <(curl -sL https://raw.githubusercontent.com/toshi0383/scripts/master/swiftpm/install.sh) toshi0383/cmdshelf
-    cmdshelf remote add toshi0383 git@github.com:toshi0383/scripts.git
+    if [ "`uname -s`" == "Darwin" ];then
+        brew install cmdshelf
+        cmdshelf remote add toshi0383 git@github.com:toshi0383/scripts.git
+    fi
 }
 
 install_swift() {
