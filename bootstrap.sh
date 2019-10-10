@@ -124,6 +124,9 @@ install_additional_commands() {
 
         curl https://www.iterm2.com/utilities/imgcat -o /usr/local/bin/imgcat
 
+        brew tap homebrew/cask-drivers
+        $INSTALL_GUI_COMMAND qmk-toolbox
+
         # $INSTALL_GUI_COMMAND android-studio
         # $INSTALL_GUI_COMMAND google-chrome
 
