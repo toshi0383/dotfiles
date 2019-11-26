@@ -101,10 +101,7 @@ install_additional_commands() {
 
     if [ "`uname -s`" == "Darwin" ];then
         $INSTALL_COMMAND hub
-        $INSTALL_COMMAND swiftgen
-        $INSTALL_COMMAND sourcery
         $INSTALL_COMMAND chisel
-        $INSTALL_COMMAND carthage
         $INSTALL_COMMAND coreutils
         $INSTALL_COMMAND git
         $INSTALL_COMMAND git-lfs
@@ -116,19 +113,27 @@ install_additional_commands() {
         $INSTALL_COMMAND gawk
         $INSTALL_COMMAND fd
         $INSTALL_COMMAND imagemagick
+        $INSTALL_COMMAND vim
+        $INSTALL_COMMAND rbenv
         $GEM_INSTALL bundler
         $GEM_INSTALL gist
+        $GEM_INSTALL xcpretty
         $INSTALL_GUI_COMMAND iterm2
         $INSTALL_GUI_COMMAND charles
+        $INSTALL_COMMAND mint
+        $INSTALL_COMMAND swiftgen
+        $INSTALL_COMMAND sourcery
+        $INSTALL_COMMAND carthage
+        $INSTALL_COMMAND xcodegen
         curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
 
-        curl https://www.iterm2.com/utilities/imgcat -o /usr/local/bin/imgcat
+        # curl https://www.iterm2.com/utilities/imgcat -o /usr/local/bin/imgcat
 
         brew tap homebrew/cask-drivers
         $INSTALL_GUI_COMMAND qmk-toolbox
 
-        # $INSTALL_GUI_COMMAND android-studio
-        # $INSTALL_GUI_COMMAND google-chrome
+        $INSTALL_GUI_COMMAND android-studio
+        $INSTALL_GUI_COMMAND google-chrome
 
         git clone git@github.com:XVimProject/XVim2.git $SETTING_DIR/XVim2
         # Need to install Xcode automatically but cannot right now.
@@ -234,10 +239,11 @@ if [ "`uname -s`" == "Linux" ];then
 fi
 
 if [ "`uname -s`" == "Darwin" ];then
-    echo -e "${NORMAL}Bootstrapping starting. You might want to download additional tools below manually.${NORMAL}"
+    echo -e "${NORMAL}Bootstrapping starting. Download and install additional tools below manually.${NORMAL}"
+    echo -e "${NORMAL}xcodebuild CLI tools might be required by some tools installation, so hurry!${NORMAL}"
+    echo -e "${NORMAL}- [Xcode] https://developer.apple.com/download/more${NORMAL}"
     echo -e "${NORMAL}- [TotalSpaces2] https://totalspaces.binaryage.com${NORMAL}"
     echo -e "${NORMAL}- [gitup] http://gitup.co${NORMAL}"
-    echo -e "${NORMAL}- [Xcode] https://developer.apple.com/download/more${NORMAL}"
     echo -e "${NORMAL}I open URLs for you.${NORMAL}"
     open https://totalspaces.binaryage.com http://gitup.co https://developer.apple.com/download/more
 fi
