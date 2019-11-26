@@ -24,6 +24,10 @@ function waitp {
 # git
 alias g='git'
 alias gasw="git add *.swift"
+alias gaproj="git add *proj"
+alias gdsw="git diff *.swift"
+alias gdcsw="git diff --cached *.swift"
+alias gapsw="git add -p *.swift"
 alias gago="git add *.go"
 alias gap="git add -p"
 alias gbr='git branch'
@@ -32,13 +36,27 @@ alias gc='git commit'
 alias gcm='git commit -m'
 alias gd='git diff'
 alias gdc='git diff --cached'
+alias gfa='git fa'
 alias gcal="gcal -H '\e[30;47m:\e[0m:\e[30;31m:\e[0m' -q JP"
 alias gcam="git commit --amend"
 alias gs='git status'
 alias gshow='git show'
+alias gshowname='git show --name-only'
 alias gst='git stash'
 alias gstp='git stash pop'
-alias gsubu='git submodule update --init -f'
+alias gsubm-f='git submodule update --init -f'
+
+## ffmpeg
+function concat_images() {
+    ffmpeg -i ${1:?} -i ${2:?} -filter_complex \
+        "[0][1]scale2ref='oh*mdar':'if(lt(main_h,ih),ih,main_h)'[0s][1s];
+            [1s][0s]scale2ref='oh*mdar':'if(lt(main_h,ih),ih,main_h)'[1s][0s];
+            [0s][1s]hstack" ${3:?}
+}
+
+function gclobbertags() {
+    git fetch --tag 2>&1 | grep rejected | awk '{print $3}' | xargs git tag -d
+}
 
 function ginit() {
     git init
@@ -59,6 +77,9 @@ alias ked='kubectl edit deploy'
 export EDITOR=vi
 function viconflicts {
     vi `git status | grep 'both modified' | awk -F: '{print $2}'`
+}
+function vimodified {
+    vi `git status | grep 'modified' | awk -F: '{print $2}'`
 }
 
 # toshi0383
@@ -88,6 +109,9 @@ function vggl {
 }
 
 alias vn='vim -c NERDTree'
+function vifd {
+    vim "`fd $1 | head -1`"
+}
 function vnfd {
     vim -c "NERDTree" `fd "$1" | head -1`
 }
@@ -110,6 +134,8 @@ if [ "`uname -s`" == "Darwin" ];then
     alias opace='openx *xcworkspace'
     alias cmsdecrypt='security cms -D -i'
     alias plbuddy='/usr/libexec/PlistBuddy'
+    alias notifyme='echo "display notification with title \"done\" sound name \"Frog\"" | /usr/bin/osascript'
+    alias notifymail='sendmail -F notification -f tsr0383@gmail.com tsr0383@gmail.com 2> /dev/null'
 
     # altool
     export PATH=$PATH:/Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Versions/A/Support
