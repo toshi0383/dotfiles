@@ -17,6 +17,10 @@ fi
 alias lrt='ll -rt'
 alias mkdir='mkdir -p'
 
+function waitp {
+    lsof -p $(ps | grep "${1:?}" | grep -v "grep ${1:?}" | head -1 | awk '{print $1}') +r 2 > /dev/null 2>&1
+}
+
 # git
 alias g='git'
 alias gasw="git add *.swift"
