@@ -74,7 +74,7 @@ alias kgew='kubectl get event -w'
 alias ke='kubectl edit'
 alias ked='kubectl edit deploy'
 
-export EDITOR=vi
+export EDITOR=vim
 function viconflicts {
     vi `git status | grep 'both modified' | awk -F: '{print $2}'`
 }

@@ -2,7 +2,7 @@
   name = toshi0383
   email = t.suzuki326@gmail.com
 [core]
-  editor = /usr/bin/vim
+  editor = /usr/local/bin/vim
   excludesfile = /Users/tsuzuki/.gitignore_global
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
