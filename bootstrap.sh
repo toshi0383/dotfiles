@@ -43,6 +43,7 @@ if [ "`uname -s`" == "Linux" ];then
     UPDATE_COMMAND="sudo ${PACKAGE_MANAGEMENT_COMMAND} update"
     UPGRADE_COMMAND="sudo ${PACKAGE_MANAGEMENT_COMMAND} upgrade"
     NPM_INSTALL="sudo npm install -g"
+    GO_GET="go get"
 else
     PACKAGE_MANAGEMENT_COMMAND=brew
     INSTALL_PACKAGE_MANAGEMENT_COMMAND='/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
@@ -115,6 +116,7 @@ install_additional_commands() {
         $INSTALL_COMMAND imagemagick
         $INSTALL_COMMAND vim
         $INSTALL_COMMAND rbenv
+        $INSTALL_COMMAND go
         $GEM_INSTALL bundler
         $GEM_INSTALL gist
         $GEM_INSTALL xcpretty
