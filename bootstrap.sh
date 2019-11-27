@@ -158,6 +158,7 @@ get_rid_of_vim_tiny() {
 setup_dirs() {
     mkdir -p $GITHUB_DIR
     mkdir -p ~/dev/tmp
+    mkdir -p ~/.vim/rc
 }
 
 setup_cmdshelf() {
