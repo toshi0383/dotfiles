@@ -129,6 +129,10 @@ install_additional_commands() {
         $INSTALL_COMMAND xcodegen
         curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
 
+        # Workaround:
+        #   https://github.com/go-jira/jira/issues/291#issuecomment-554742540
+        GO111MODULE=on $GO_GET github.com/go-jira/jira/cmd/jira
+
         # curl https://www.iterm2.com/utilities/imgcat -o /usr/local/bin/imgcat
 
         brew tap homebrew/cask-drivers
