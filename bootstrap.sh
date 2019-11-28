@@ -133,6 +133,10 @@ install_additional_commands() {
         #   https://github.com/go-jira/jira/issues/291#issuecomment-554742540
         GO111MODULE=on $GO_GET github.com/go-jira/jira/cmd/jira
 
+        # NERDTree for vim: FIXME: install via ~/.vim/rc/dein.toml failed
+        git clone https://github.com/scrooloose/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
+        vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q
+
         # curl https://www.iterm2.com/utilities/imgcat -o /usr/local/bin/imgcat
 
         brew tap homebrew/cask-drivers
