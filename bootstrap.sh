@@ -120,6 +120,7 @@ install_additional_commands() {
         $GEM_INSTALL bundler
         $GEM_INSTALL gist
         $GEM_INSTALL xcpretty
+        $GEM_INSTALL cocoapods
         $INSTALL_GUI_COMMAND iterm2
         $INSTALL_GUI_COMMAND charles
         $INSTALL_COMMAND mint
