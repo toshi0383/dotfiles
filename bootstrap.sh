@@ -128,6 +128,7 @@ install_additional_commands() {
         $INSTALL_COMMAND sourcery
         $INSTALL_COMMAND carthage
         $INSTALL_COMMAND xcodegen
+        $INSTALL_COMMAND ghc cabal-install stack
         curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
 
         # Workaround:
