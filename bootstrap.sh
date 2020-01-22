@@ -128,6 +128,7 @@ install_additional_commands() {
         $INSTALL_COMMAND sourcery
         $INSTALL_COMMAND carthage
         $INSTALL_COMMAND xcodegen
+        $INSTALL_COMMAND kotlin
         $INSTALL_COMMAND ghc cabal-install stack
         curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
 
@@ -135,7 +136,7 @@ install_additional_commands() {
         #   https://github.com/go-jira/jira/issues/291#issuecomment-554742540
         GO111MODULE=on $GO_GET github.com/go-jira/jira/cmd/jira
 
-        # NERDTree for vim: FIXME: install via ~/.vim/rc/dein.toml failed
+        # NERDTree for vim: WORKAROUND: install via ~/.vim/rc/dein.toml failed
         git clone https://github.com/scrooloose/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
         vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q
 
