@@ -3,7 +3,6 @@
   email = t.suzuki326@gmail.com
 [core]
   editor = /usr/local/bin/vim
-  excludesfile = /Users/tsuzuki/.gitignore_global
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path = 
@@ -72,11 +71,7 @@
   autostash = true
 [grep]
   extendedRegexp = true
-[http]
-	cookiefile = /Users/toshi0383/.gitcookies
 [github]
 	user = toshi0383
-[ghi]
-	token = !security find-internet-password -a toshi0383 -s github.com -l 'ghi token' -w
 [url "git@bitbucket.org:"]
 	insteadOf = https://bitbucket.org/

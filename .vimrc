@@ -1,6 +1,10 @@
 " 基本的には以下のページを写経しただけ.
 " https://qiita.com/kooooooooooooooooohe/items/fb106e0a0f0969b4ee38
 
+set nocompatible
+filetype plugin on
+runtime macros/matchit.vim
+
 set encoding=utf-8
 scriptencoding utf-8
 
@@ -31,14 +35,14 @@ set tabstop=4
 " 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
 set softtabstop=4
 
+" smartindentで増減する幅"
+set shiftwidth=4
+
 " 改行時に前の行のインデントを継続する
 set autoindent
 
 " 改行時に前の行の構文をチェックし次の行のインデントを増減する
 set smartindent
-
-" smartindentで増減する幅"
-set shiftwidth=4
 
 " インクリメンタルサーチ. １文字入力毎に検索を行う
 set incsearch
@@ -48,6 +52,9 @@ set ignorecase
 set smartcase
 " 検索結果をハイライト"
 set hlsearch
+
+" ターミナルサイズ設定
+set termwinsize=5\*100
 
 " 不可視文字を可視化(タブが「▸-」と表示される)
 set list listchars=tab:\▸\-
@@ -104,19 +111,19 @@ if dein#check_install()
   call dein#install()
 endif
 
-" syntaxハイライト関連、だったような
-filetype plugin indent on
-" colorscheme molokai
-set background=light
-colorscheme PaperColor
-syntax on
-
 " leader
 let mapleader = "\<Space>"
 
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>qa :qa<CR>
 nnoremap <Leader>q :q<CR>
+
+" very magic by default
+"nnoremap /  /\v
+
+" terminalモード中のESCはノーマルモード移行に割り当て
+tnoremap <Esc> <C-\><C-n>
+tnoremap <S-Esc> <C-\><C-n><C-w>w
 
 "==============プラグイン関係の設定==============
 
@@ -138,7 +145,31 @@ nmap <Leader>jq :%!jq '.'<CR>
 nmap <C-n> :NERDTreeFind<CR>
 nmap <C-m> :NERDTreeToggle<CR>
 
+" syntaxハイライト関連、だったような
+filetype plugin indent on
+" colorscheme molokai
+set background=dark
+"colorscheme PaperColor
+syntax on
+" 背景無効化
+"highlight Normal ctermbg=none
+"highlight NonText ctermbg=none
+"highlight LineNr ctermbg=none
+"highlight Folded ctermbg=none
+"highlight EndOfBuffer ctermbg=none
+
 "==============ファイルタイプごとの設定==============
-autocmd FileType html setlocal shiftwidth=2 tabstop=2
-autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
-autocmd FileType yml setlocal shiftwidth=2 tabstop=2
+autocmd FileType html   setlocal shiftwidth=2 tabstop=2
+autocmd FileType yaml   setlocal shiftwidth=2 tabstop=2
+autocmd FileType yml    setlocal shiftwidth=2 tabstop=2
+autocmd FileType *.kt   setlocal shiftwidth=2 tabstop=2
+autocmd FileType *.java setlocal shiftwidth=2 tabstop=2
+autocmd FileType *.js setlocal shiftwidth=2 tabstop=2
+autocmd FileType swift setlocal shiftwidth=4 tabstop=4
+
+let g:ftcolor_redraw = 1
+let g:ftcolor_default_color_scheme = ['PaperColor']
+let g:ftcolor_color_mappings = {}
+let g:ftcolor_color_mappings.java = ['solarized8']
+"==============rust==============
+let g:rustfmt_autosave = 1

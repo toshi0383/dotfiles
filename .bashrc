@@ -18,12 +18,17 @@ alias lrt='ll -rt'
 alias mkdir='mkdir -p'
 
 function waitp {
-    lsof -p $(ps | grep "${1:?}" | grep -v "grep ${1:?}" | head -1 | awk '{print $1}') +r 2 > /dev/null 2>&1
+    pid=$(ps | grep "${1:?}" | grep -v "grep ${1:?}" | head -1 | awk '{print $1}')
+    if [ -z $pid ]; then
+        return
+    fi
+    lsof -p ${pid:?} +r 2 > /dev/null 2>&1
 }
 
 # git
 alias g='git'
 alias gasw="git add *.swift"
+alias gaxib="git add *.xib"
 alias gaproj="git add *proj"
 alias gdsw="git diff *.swift"
 alias gdcsw="git diff --cached *.swift"
@@ -45,6 +50,11 @@ alias gshowname='git show --name-only'
 alias gst='git stash'
 alias gstp='git stash pop'
 alias gsubm-f='git submodule update --init -f'
+
+function gcopr() {
+    git fetch origin pull/${1}/head:${1}
+    git checkout $1
+}
 
 ## ffmpeg
 function concat_images() {
@@ -127,6 +137,9 @@ if [ "`uname -s`" == "Darwin" ];then
     # Xcode
     export PATH=$PATH:`xcode-select -p`/usr/bin
     export PATH="$HOME/.fastlane/bin:$PATH"
+    export PATH="$PATH:~/dev/flutter/bin/"
+    export PATH="$PATH":"$HOME/dev/flutter/.pub-cache/bin"
+
     alias xselp='xcode-select -p'
     alias xsels='sudo xcode-select -s'
     alias openx='open -a `xselp`/../..'
@@ -134,16 +147,30 @@ if [ "`uname -s`" == "Darwin" ];then
     alias opace='openx *xcworkspace'
     alias cmsdecrypt='security cms -D -i'
     alias plbuddy='/usr/libexec/PlistBuddy'
-    alias notifyme='echo "display notification with title \"done\" sound name \"Frog\"" | /usr/bin/osascript'
-    alias notifymail='sendmail -F notification -f tsr0383@gmail.com tsr0383@gmail.com 2> /dev/null'
+    alias notifyme='echo "display notification with title \"done\" sound name \"Beep\"" | /usr/bin/osascript'
 
     # altool
     export PATH=$PATH:/Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Versions/A/Support
     #$(dirname "$(find $(dirname $(xcode-select -p)) -name altool | head -1)")
 
     export DERIVED=~/Library/Developer/Xcode/DerivedData
-    alias resetd='rm -rf $DERIVED/*'
-    alias resetdd='resetd && fastlane snapshot reset_simulators'
+    alias removeDerived='rm -rf $DERIVED/*'
+    alias removeSimulators='rm -rf ~/Library/Logs/CoreSimulator/* && rm -rf ~/Library/Developer/CoreSimulator/Devices/*'
+
+    function removeCaches() {
+        rm -rf $DERIVED/*
+        rm -rf `brew --cache`
+        rm -rf ~/Library/Caches/org.carthage.CarthageKit/
+        rm -rf ~/Library/Caches/CocoaPods/
+        rm -rf ~/Library/Developer/CoreSimulator/Caches/*
+        rm -rf ~/Library/Developer/Xcode/iOS\ Device\ Logs/*
+        rm -rf ~/.gradle/caches/*
+
+        # Simulatorを個別にダウンロードした場合に溜まってる
+        rm -rf ~/Library/Caches/com.apple.dt.Xcode/Downloads/*
+    }
+
+    alias resetdd='removeDerived && removeCaches && removeSimulators && fastlane snapshot reset_simulators && sudo killall -9 com.apple.CoreSimulator.CoreSimulatorService'
 	export SNAPSHOT_FORCE_DELETE=true
 
 	export PATH=$PATH:`xcode-select -p`/../SharedFrameworks/DTDeviceKitBase.framework/Versions/A/Resources
@@ -176,6 +203,12 @@ if [ "`uname -s`" == "Darwin" ];then
         gvm use $1 || return
         export GOPATH=$HOME/gohome
     }
+
+    # adb under Android Studio dir
+    [[ -s "$HOME/Library/Android/sdk/platform-tools/" ]] && export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
+    [[ -s "$HOME/Library/Android/sdk/tools/bin/" ]] && export PATH=$PATH:$HOME/Library/Android/sdk/tools/bin
+    export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
+    export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home/
 
     export GOPATH=$HOME/gohome
     export GOBIN=$GOPATH/bin

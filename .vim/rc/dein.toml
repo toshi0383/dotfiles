@@ -27,9 +27,15 @@ depends = ['vim-airline-themes']
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 
+# change colorscheme for each buffer
 [[plugins]]
-#repo = 'tomasr/molokai'
+repo = 'caglartoklu/ftcolor.vim'
+
+[[plugins]]
 repo = 'NLKNguyen/papercolor-theme'
+
+[[plugins]]
+repo = 'lifepillar/vim-solarized8'
 
 [[plugins]]
 repo = 'keith/swift.vim'
@@ -49,10 +55,6 @@ repo = 'Shougo/vimfiler'
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
 
-# QuickRun
-[[plugins]]
-repo = 'thinca/vim-quickrun'
-
 # GBlameなど
 # [[plugins]]
 # repo = 'tpope/vim-fugitive'
@@ -62,6 +64,11 @@ repo = 'thinca/vim-quickrun'
 [[plugins]]
 repo = 'fatih/vim-go'
 
-# IDEっぽくするやつ
 [[plugins]]
-repo = 'scrooloose/nerdtree'
+repo = 'vim-scripts/applescript.vim'
+
+[[plugins]]
+repo = 'ethereum/vim-solidity'
+
+[[plugins]]
+repo = 'dart-lang/dart-vim-plugin'
