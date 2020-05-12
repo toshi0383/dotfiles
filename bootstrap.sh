@@ -147,12 +147,6 @@ install_additional_commands() {
 
         $INSTALL_GUI_COMMAND android-studio
         $INSTALL_GUI_COMMAND google-chrome
-
-        git clone git@github.com:XVimProject/XVim2.git $SETTING_DIR/XVim2
-        # Need to install Xcode automatically but cannot right now.
-        # cd $SETTING_DIR/XVim2; make; cd -
-        # At least open signing xcode instruction page on browser.
-        open https://github.com/XVimProject/XVim2/blob/master/SIGNING_Xcode.md
     fi
 }
 
