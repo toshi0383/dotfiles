@@ -98,7 +98,7 @@ install_additional_commands() {
         fi
     done
 
-    $NPM_INSTALL gh
+    #$NPM_INSTALL gh
 
     if [ "`uname -s`" == "Darwin" ];then
         $INSTALL_COMMAND hub
@@ -115,26 +115,26 @@ install_additional_commands() {
         $INSTALL_COMMAND fd
         $INSTALL_COMMAND imagemagick
         $INSTALL_COMMAND vim
-        $INSTALL_COMMAND rbenv
-        $INSTALL_COMMAND go
+        #$INSTALL_COMMAND rbenv
+        #$INSTALL_COMMAND go
         $GEM_INSTALL bundler
         $GEM_INSTALL gist
-        $GEM_INSTALL xcpretty
+        #$GEM_INSTALL xcpretty
         $GEM_INSTALL cocoapods
         $INSTALL_GUI_COMMAND iterm2
         $INSTALL_GUI_COMMAND charles
         $INSTALL_COMMAND mint
-        $INSTALL_COMMAND swiftgen
-        $INSTALL_COMMAND sourcery
+        #$INSTALL_COMMAND swiftgen
+        #$INSTALL_COMMAND sourcery
         $INSTALL_COMMAND carthage
         $INSTALL_COMMAND xcodegen
-        $INSTALL_COMMAND kotlin
-        $INSTALL_COMMAND ghc cabal-install stack
+        #$INSTALL_COMMAND kotlin
+        #$INSTALL_COMMAND ghc cabal-install stack
         curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
 
         # Workaround:
         #   https://github.com/go-jira/jira/issues/291#issuecomment-554742540
-        GO111MODULE=on $GO_GET github.com/go-jira/jira/cmd/jira
+        #GO111MODULE=on $GO_GET github.com/go-jira/jira/cmd/jira
 
         # NERDTree for vim: WORKAROUND: install via ~/.vim/rc/dein.toml failed
         git clone https://github.com/scrooloose/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
@@ -172,19 +172,6 @@ setup_cmdshelf() {
     if [ "`uname -s`" == "Darwin" ];then
         brew install cmdshelf
         cmdshelf remote add toshi0383 git@github.com:toshi0383/scripts.git
-    fi
-}
-
-install_swift() {
-    echo -en "${YELLOW}Install Swift ?(y/n):${NORMAL}"
-    read line
-    if [ $line != "y" ];then
-        return
-    fi
-    git clone git@github.com:apple/swift.git $GITHUB_DIR/swift
-    if [ "`uname -s`" == "Linux" ];then
-        source ./install_swift_dependencies_for_linux.sh
-        install_swift_dependencies_for_ubuntu
     fi
 }
 
@@ -277,9 +264,7 @@ setup_cmdshelf
 
 copy_dotfiles_ifneeded
 
-# install_swift
-
-install_java
+# install_java
 
 # git clone git@github.com:there4/markdown-resume.git $GITHUB_DIR/markdown-resume
 
