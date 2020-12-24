@@ -76,20 +76,12 @@ function ginit() {
 EOF
 }
 
-# kubernetes
-source $HOME/.kubectl_aliases
-alias kgd='kubectl get deploy'
-alias kge='kubectl get event'
-alias kgew='kubectl get event -w'
-alias ke='kubectl edit'
-alias ked='kubectl edit deploy'
-
 export EDITOR=vim
 function viconflicts {
     vi `git status | grep 'both modified' | awk -F: '{print $2}'`
 }
 function vimodified {
-    vi `git status | grep 'modified' | awk -F: '{print $2}'`
+    vi `git status | grep -E '(modified|new file)' | awk -F: '{print $2}'`
 }
 
 # toshi0383
@@ -138,7 +130,7 @@ if [ "`uname -s`" == "Darwin" ];then
     export PATH=$PATH:`xcode-select -p`/usr/bin
     export PATH="$HOME/.fastlane/bin:$PATH"
     export PATH="$PATH:~/dev/flutter/bin/"
-    export PATH="$PATH":"$HOME/dev/flutter/.pub-cache/bin"
+    export PATH="$PATH":"$HOME/.pub-cache/bin"
 
     alias xselp='xcode-select -p'
     alias xsels='sudo xcode-select -s'
@@ -213,6 +205,7 @@ if [ "`uname -s`" == "Darwin" ];then
     export GOPATH=$HOME/gohome
     export GOBIN=$GOPATH/bin
     export PATH=$PATH:$GOPATH/bin
+    export PATH=$PATH:$HOME/.cargo/bin
 
     # gcloud
     GCLOUD_BASH_COMPETION=/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc

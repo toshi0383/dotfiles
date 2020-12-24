@@ -2,7 +2,9 @@
   name = toshi0383
   email = t.suzuki326@gmail.com
 [core]
-  editor = /usr/local/bin/vim
+  editor = /usr/bin/vim
+	pager = LESSCHARSET=utf-8 less
+	quotepath = false
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path = 
@@ -75,3 +77,7 @@
 	user = toshi0383
 [url "git@bitbucket.org:"]
 	insteadOf = https://bitbucket.org/
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main
