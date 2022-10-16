@@ -17,6 +17,30 @@ fi
 alias lrt='ll -rt'
 alias mkdir='mkdir -p'
 
+# 指定した番号のPRがマージ可能になったらマージする。
+#
+# gh pr merge --autoがうまく動いてないので自前polling
+# https://github.com/cli/cli/issues/3514
+function autoMerge {
+    num=${1:?}
+    while true
+    do
+        STATUS=$(
+            gh pr status --json mergeStateStatus,number \
+                | jq ".createdBy | map(select(.number == ${num}))[0].mergeStateStatus" \
+                | sed 's/\"//g'
+        )
+
+        if [ "$STATUS" != "CLEAN" ]; then
+            echo "Waiting for mergeStateStatus to be CLEAN..."
+        else
+            gh pr merge --merge $num
+            break
+        fi
+        sleep 30
+    done
+}
+
 function waitp {
     pid=$(ps | grep "${1:?}" | grep -v "grep ${1:?}" | head -1 | awk '{print $1}')
     if [ -z $pid ]; then
