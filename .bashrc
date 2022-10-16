@@ -133,7 +133,7 @@ function viconflicts {
     vi `git status | grep 'both modified' | awk -F: '{print $2}'`
 }
 function vimodified {
-    vi `git status | grep -E '(modified|new file)' | awk -F: '{print $2}'`
+    vi `git status | grep 'modified' | awk -F: '{print $2}'`
 }
 
 # toshi0383
