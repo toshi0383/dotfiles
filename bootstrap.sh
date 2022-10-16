@@ -46,9 +46,9 @@ if [ "`uname -s`" == "Linux" ];then
     GO_GET="go get"
 else
     PACKAGE_MANAGEMENT_COMMAND=brew
-    INSTALL_PACKAGE_MANAGEMENT_COMMAND='/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
+    INSTALL_PACKAGE_MANAGEMENT_COMMAND='/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
     INSTALL_COMMAND="${PACKAGE_MANAGEMENT_COMMAND} install"
-    INSTALL_GUI_COMMAND="${PACKAGE_MANAGEMENT_COMMAND} cask install"
+    INSTALL_GUI_COMMAND="${PACKAGE_MANAGEMENT_COMMAND} install --cask"
     UPDATE_COMMAND="${PACKAGE_MANAGEMENT_COMMAND} update"
     UPGRADE_COMMAND="${PACKAGE_MANAGEMENT_COMMAND} upgrade"
     GEM_INSTALL="sudo gem install -N"
@@ -115,6 +115,7 @@ install_additional_commands() {
         $INSTALL_COMMAND fd
         $INSTALL_COMMAND imagemagick
         $INSTALL_COMMAND vim
+        $INSTALL_COMMAND pass
         #$INSTALL_COMMAND rbenv
         #$INSTALL_COMMAND go
         $GEM_INSTALL bundler
@@ -122,7 +123,7 @@ install_additional_commands() {
         #$GEM_INSTALL xcpretty
         $GEM_INSTALL cocoapods
         $INSTALL_GUI_COMMAND iterm2
-        $INSTALL_GUI_COMMAND charles
+        #$INSTALL_GUI_COMMAND charles
         $INSTALL_COMMAND mint
         #$INSTALL_COMMAND swiftgen
         #$INSTALL_COMMAND sourcery
@@ -139,11 +140,6 @@ install_additional_commands() {
         # NERDTree for vim: WORKAROUND: install via ~/.vim/rc/dein.toml failed
         git clone https://github.com/scrooloose/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
         vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q
-
-        # curl https://www.iterm2.com/utilities/imgcat -o /usr/local/bin/imgcat
-
-        brew tap homebrew/cask-drivers
-        $INSTALL_GUI_COMMAND qmk-toolbox
 
         $INSTALL_GUI_COMMAND android-studio
         $INSTALL_GUI_COMMAND google-chrome
@@ -186,14 +182,11 @@ install_java() {
 
 # dependency: git
 copy_dotfiles_ifneeded() {
-    if [ "`uname -s`" == "Linux" ];then
-        copy .bashrc
-        copy .lldbinit
-        copy .vimrc
-        copy .vim
-        copy .gitconfig
-        copy kubectl_aliases/.kubectl_aliases
-    fi
+    copy .bashrc
+    copy .lldbinit
+    copy .vimrc
+    copy .vim
+    copy .gitconfig
 }
 
 touch_bash_profile() {
