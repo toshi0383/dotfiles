@@ -2,8 +2,7 @@
   name = toshi0383
   email = t.suzuki326@gmail.com
 [core]
-  editor = /usr/bin/vim
-	pager = LESSCHARSET=utf-8 less
+  editor = /usr/local/bin/vim
 	quotepath = false
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
@@ -12,7 +11,7 @@
   cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
   trustExitCode = true
 [alias]
-  p = pull --ff
+  p = pull
   s = status
   o = checkout
   b = checkout -b
@@ -43,7 +42,8 @@
   g = grep -in
   l = log
   stat = log --stat
-  line = log --no-merges --date=short --pretty=format:\\\\\"%C(yellow)%h %C(green)%cd %C(blue)%an%C(red)%d %C(reset)%s\\\\\"
+  line = !sh -c \"git log --no-merges --date=short --pretty=format:'%C(yellow)%h %C(green)%cd %C(blue)%an%C(red)%d %C(reset)%s' $@\"
+  linepr = !sh -c \"git log --no-merges --date=short --pretty=format:'%C(yellow)%h %C(reset)%s' $@\"
   unst = reset HEAD
   pu-clean = !git pu && git branch -d ${1} && git checkout -b ${1}_hello
   br = branch
@@ -65,9 +65,10 @@
   gc-all = gc --prune=all
 
 [filter "lfs"]
-  clean = git-lfs clean %f
-  smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
   required = true
+	process = git-lfs filter-process
 [rebase]
   autosquash = true
   autostash = true
@@ -78,6 +79,8 @@
 [url "git@bitbucket.org:"]
 	insteadOf = https://bitbucket.org/
 [pull]
-	rebase = false
+	ff = only
+[push]
+	default = current
 [init]
 	defaultBranch = main
