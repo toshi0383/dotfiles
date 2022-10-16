@@ -17,6 +17,12 @@ fi
 alias lrt='ll -rt'
 alias mkdir='mkdir -p'
 
+# パイプのみ対応
+function str2unicode {
+    while read -N1 c; do d=$(echo -n "$c" | iconv -t UCS-2BE | xxd -p); if [[ "$d" == "fffd" ]]; then echo -n "$c" | iconv -t UCS-4BE | xxd -p | xargs printf '\\U%s'; else printf '\\u%s' $d; fi; done
+    echo
+}
+
 # 指定した番号のPRがマージ可能になったらマージする。
 #
 # gh pr merge --autoがうまく動いてないので自前polling
