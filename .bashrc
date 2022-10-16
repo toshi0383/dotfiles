@@ -182,7 +182,6 @@ if [ "`uname -s`" == "Darwin" ];then
     export PATH=$PATH:`xcode-select -p`/usr/bin
     export PATH="$HOME/.fastlane/bin:$PATH"
     export PATH="$PATH:~/dev/flutter/bin/"
-    export PATH="$PATH":"$HOME/.pub-cache/bin"
 
     alias xselp='xcode-select -p'
     alias xsels='sudo xcode-select -s'
@@ -197,6 +196,11 @@ if [ "`uname -s`" == "Darwin" ];then
     export PATH=$PATH:/Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Versions/A/Support
     #$(dirname "$(find $(dirname $(xcode-select -p)) -name altool | head -1)")
 
+    # sips
+    function convertToJPEG {
+        sips --setProperty format jpeg $1 --out `echo $1 | gsed -rn 's/(.*)\..*/\1.jpg/p'`
+    }
+
     export DERIVED=~/Library/Developer/Xcode/DerivedData
     alias removeDerived='rm -rf $DERIVED/*'
     alias removeSimulators='rm -rf ~/Library/Logs/CoreSimulator/* && rm -rf ~/Library/Developer/CoreSimulator/Devices/*'
@@ -208,13 +212,14 @@ if [ "`uname -s`" == "Darwin" ];then
         rm -rf ~/Library/Caches/CocoaPods/
         rm -rf ~/Library/Developer/CoreSimulator/Caches/*
         rm -rf ~/Library/Developer/Xcode/iOS\ Device\ Logs/*
-        rm -rf ~/.gradle/caches/*
+        rm -rf ~/.android/cache
+        rm -rf ~/.gradle/caches
 
         # Simulatorを個別にダウンロードした場合に溜まってる
         rm -rf ~/Library/Caches/com.apple.dt.Xcode/Downloads/*
     }
 
-    alias resetdd='removeDerived && removeCaches && removeSimulators && fastlane snapshot reset_simulators && sudo killall -9 com.apple.CoreSimulator.CoreSimulatorService'
+    alias resetdd='removeDerived && removeCaches && fastlane snapshot reset_simulators && sudo killall -9 com.apple.CoreSimulator.CoreSimulatorService'
 	export SNAPSHOT_FORCE_DELETE=true
 
 	export PATH=$PATH:`xcode-select -p`/../SharedFrameworks/DTDeviceKitBase.framework/Versions/A/Resources
@@ -257,7 +262,6 @@ if [ "`uname -s`" == "Darwin" ];then
     export GOPATH=$HOME/gohome
     export GOBIN=$GOPATH/bin
     export PATH=$PATH:$GOPATH/bin
-    export PATH=$PATH:$HOME/.cargo/bin
 
     # gcloud
     GCLOUD_BASH_COMPETION=/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc
@@ -266,14 +270,5 @@ if [ "`uname -s`" == "Darwin" ];then
     [[ -d $GCLOUD_PATH ]] && export PATH=$PATH:$GCLOUD_PATH
 fi
 
-function command_not_found_handle(){
-  if [ -e /usr/local/bin/imgcat ];then
-    if [ -f ~/Documents/rivai-small.jpg ];then
-      /usr/local/bin/imgcat ~/Documents/rivai-small.jpg
-    fi
-  fi
-  echo "$1?"
-  echo "全然なってない。全部やり直せ。"
-}
 
 alias cdstream='cd /Library/WebServer/Documents/stream'
