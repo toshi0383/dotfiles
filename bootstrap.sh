@@ -88,7 +88,7 @@ install_additional_commands() {
     $UPDATE_COMMAND
 
     ## NOTE: mac2unix comes with dos2unix
-    for i in tree lv dos2unix npm jq
+    for i in tree lv dos2unix jq
     do
         which $i > /dev/null
         if [ $? -ne 0 ];then
@@ -97,8 +97,6 @@ install_additional_commands() {
             echo "done"
         fi
     done
-
-    #$NPM_INSTALL gh
 
     if [ "`uname -s`" == "Darwin" ];then
         $INSTALL_COMMAND hub
@@ -116,19 +114,15 @@ install_additional_commands() {
         $INSTALL_COMMAND imagemagick
         $INSTALL_COMMAND vim
         $INSTALL_COMMAND pass
-        #$INSTALL_COMMAND rbenv
+        $INSTALL_COMMAND rbenv
         #$INSTALL_COMMAND go
-        $GEM_INSTALL bundler
+        #$GEM_INSTALL bundler
         $GEM_INSTALL gist
-        #$GEM_INSTALL xcpretty
-        $GEM_INSTALL cocoapods
+        #$GEM_INSTALL cocoapods
         $INSTALL_GUI_COMMAND iterm2
-        #$INSTALL_GUI_COMMAND charles
         $INSTALL_COMMAND mint
-        #$INSTALL_COMMAND swiftgen
-        #$INSTALL_COMMAND sourcery
-        $INSTALL_COMMAND carthage
-        $INSTALL_COMMAND xcodegen
+        #$INSTALL_COMMAND carthage
+        #$INSTALL_COMMAND xcodegen
         #$INSTALL_COMMAND kotlin
         #$INSTALL_COMMAND ghc cabal-install stack
         curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
@@ -141,7 +135,7 @@ install_additional_commands() {
         git clone https://github.com/scrooloose/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
         vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q
 
-        $INSTALL_GUI_COMMAND android-studio
+        #$INSTALL_GUI_COMMAND android-studio
         $INSTALL_GUI_COMMAND google-chrome
     fi
 }
