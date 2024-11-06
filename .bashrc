@@ -86,6 +86,8 @@ vf() {
 # git
 alias g='git'
 alias gasw="git add *.swift"
+alias gakt="git add *.kt"
+alias gaxml="git add *.xml"
 alias gaxib="git add *.xib"
 alias gaproj="git add *proj"
 alias gdsw="git diff *.swift"
@@ -108,11 +110,16 @@ alias gshowname='git show --name-only'
 alias gst='git stash'
 alias gstp='git stash pop'
 alias gsubm-f='git submodule update --init -f'
+function nbex() {
+    nb export ${1} prmsg-${1}.md
+}
 
-function gcopr() {
+function copr() {
     git fetch origin pull/${1}/head:${1}
     git checkout $1
 }
+
+alias matrix='while true; do uuidgen; sleep 0.01; done | xxd -c 40'
 
 ## ffmpeg
 function concat_images() {
@@ -163,6 +170,7 @@ alias ghio='ghi show --web'
 alias gcl='git clone'
 alias yyyymmdd='date +%Y-%m-%d'
 alias unixtime='date +%s'
+alias timer='d=`date +%s`; while true; do sleep 1; expr `date +%s` - $d; done'
 
 function vggl {
     vim `git grep -l $1 $2`
@@ -176,15 +184,13 @@ function vnfd {
     vim -c "NERDTree" `fd "$1" | head -1`
 }
 
-export PATH=~/github/markdown-resume/bin:$PATH
-
 export PS1='\W $ '
 
-export PATH=$PATH:/usr/local/lib/node_modules
 
 # Setup for OS X
 if [ "`uname -s`" == "Darwin" ];then
     # Xcode
+    export PATH="/opt/homebrew/bin:$PATH"
     export PATH=$PATH:`xcode-select -p`/usr/bin
     export PATH="$HOME/.fastlane/bin:$PATH"
     export PATH="$PATH:~/dev/flutter/bin/"
@@ -218,14 +224,16 @@ if [ "`uname -s`" == "Darwin" ];then
         rm -rf ~/Library/Caches/CocoaPods/
         rm -rf ~/Library/Developer/CoreSimulator/Caches/*
         rm -rf ~/Library/Developer/Xcode/iOS\ Device\ Logs/*
+        rm -rf ~/Library/Developer/CoreSimulator/Devices/**/data/Library/Caches/*
         rm -rf ~/.android/cache
         rm -rf ~/.gradle/caches
+        rm -rf ~/work/and/.gradle
 
         # Simulatorを個別にダウンロードした場合に溜まってる
         rm -rf ~/Library/Caches/com.apple.dt.Xcode/Downloads/*
     }
 
-    alias resetdd='removeDerived && removeCaches && fastlane snapshot reset_simulators && sudo killall -9 com.apple.CoreSimulator.CoreSimulatorService'
+    alias resetdd='removeCaches && fastlane snapshot reset_simulators && sudo killall -9 com.apple.CoreSimulator.CoreSimulatorService'
 	export SNAPSHOT_FORCE_DELETE=true
 
 	export PATH=$PATH:`xcode-select -p`/../SharedFrameworks/DTDeviceKitBase.framework/Versions/A/Resources
@@ -244,11 +252,11 @@ if [ "`uname -s`" == "Darwin" ];then
     alias design='cmdshelf run design/init_design.sh'
 
     # bash-completion
-    if [ -f /usr/local/share/bash-completion/bash_completion ]; then
-        . /usr/local/share/bash-completion/bash_completion
+    if [ -f /opt/homebrew/share/bash-completion/bash_completion ]; then
+        . /opt/homebrew/share/bash-completion/bash_completion
     fi
     # bash_completion.d
-    for f in $(ls /usr/local/etc/bash_completion.d/); do source /usr/local/etc/bash_completion.d/$f; done
+    for f in $(ls /opt/homebrew/etc/bash_completion.d/); do source /opt/homebrew/etc/bash_completion.d/$f; done
 
     alias sort-by-last="awk '{print \$NF,\$0 }' | sort -nr | cut -d ' ' -f 2-"
 
@@ -262,7 +270,9 @@ if [ "`uname -s`" == "Darwin" ];then
     # adb under Android Studio dir
     [[ -s "$HOME/Library/Android/sdk/platform-tools/" ]] && export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
     [[ -s "$HOME/Library/Android/sdk/tools/bin/" ]] && export PATH=$PATH:$HOME/Library/Android/sdk/tools/bin
-    export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
+    export ANDROID_SDK_ROOT="/opt/homebrew/share/android-sdk"
+    export ANDROID_HOME="${HOME}/Library/Android/sdk"
+    export ANDROID_NDK_HOME="${ANDROID_HOME}/ndk/21.2.6472646/"
     export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home/
 
     export GOPATH=$HOME/gohome
@@ -270,11 +280,18 @@ if [ "`uname -s`" == "Darwin" ];then
     export PATH=$PATH:$GOPATH/bin
 
     # gcloud
-    GCLOUD_BASH_COMPETION=/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc
-    GCLOUD_PATH=/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc
+    GCLOUD_BASH_COMPETION=/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc
+    GCLOUD_PATH=/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc
     [[ -s $GCLOUD_BASH_COMPETION ]] && source $GCLOUD_BASH_COMPETION
     [[ -d $GCLOUD_PATH ]] && export PATH=$PATH:$GCLOUD_PATH
 fi
 
+export LC_ALL=en_US.UTF-8
+# anyenv
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
+eval "$(rbenv init - bash)"
+alias abrew='/opt/homebrew/bin/brew'
 
-alias cdstream='cd /Library/WebServer/Documents/stream'
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
