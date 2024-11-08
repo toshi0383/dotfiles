@@ -115,6 +115,8 @@ install_additional_commands() {
         $INSTALL_COMMAND vim
         $INSTALL_COMMAND pass
         $INSTALL_COMMAND rbenv
+        $INSTALL_COMMAND tmux
+        $INSTALL_COMMAND fzf
         #$INSTALL_COMMAND go
         #$GEM_INSTALL bundler
         $GEM_INSTALL gist
