@@ -118,6 +118,8 @@ install_additional_commands() {
         $INSTALL_COMMAND tmux
         $INSTALL_COMMAND fzf
         $INSTALL_COMMAND gh
+        $INSTALL_COMMAND nb
+        $INSTALL_COMMAND anyenv
         #$INSTALL_COMMAND go
         #$GEM_INSTALL bundler
         $GEM_INSTALL gist
